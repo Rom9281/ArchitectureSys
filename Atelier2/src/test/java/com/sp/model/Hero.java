@@ -1,7 +1,14 @@
 package com.sp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Hero {
-	private int id;
+	@Id
+	@GeneratedValue
+	private Integer id;
 	private String name;
 	private String superPowerName;
 	private int superPowerValue;
@@ -18,6 +25,7 @@ public class Hero {
 		this.superPowerValue = superPowerValue;
 		this.imgUrl = imgUrl;
 	}
+
 
 	public String getName() {
 		return name;

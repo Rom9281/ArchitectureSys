@@ -10,3 +10,5 @@ public class SpAppHero {
 		SpringApplication.run(SpAppHero.class,args);
 	}
 }
+
+//docker run --name pgtp -e POSTGRES_PASSWORD=tp -e POSTGRES_DB=Card -p 55432:5432 -d postgres
