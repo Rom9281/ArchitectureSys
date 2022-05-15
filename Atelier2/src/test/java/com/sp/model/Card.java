@@ -43,35 +43,93 @@ public class Card {
 		this.attack = attack;
 	}
 
-	// GETTER AND SETTER
-	
-	public int getDefense() {
-		return defense;
+	public int getId() {
+		return id;
 	}
-	public int getEnergy() {
-		return energy;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public int getHp() {
-		return hp;
-	}
-	public int getAttack() {
-		return attack;
-	}
-	
+
 	public String getName() {
 		return name;
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getDescription() {
 		return description;
 	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public String getFamily() {
 		return family;
 	}
+
+	public void setFamily(String family) {
+		this.family = family;
+	}
+
 	public String getAffinity() {
 		return affinity;
 	}
+
+	public void setAffinity(String affinity) {
+		this.affinity = affinity;
+	}
+
 	public String getImgUrl() {
 		return imgUrl;
 	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
+	public int getDefense() {
+		return defense;
+	}
+
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
+
+	public int getEnergy() {
+		return energy;
+	}
+
+	public void setEnergy(int energy) {
+		this.energy = energy;
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+
+	public int getAttack() {
+		return attack;
+	}
+
+	public void setAttack(int attack) {
+		this.attack = attack;
+	}
+
+	@Override
+	public String toString() {
+		return "Card [id=" + id + ", name=" + name + ", description=" + description + ", family=" + family
+				+ ", affinity=" + affinity + ", imgUrl=" + imgUrl + ", defense=" + defense + ", energy=" + energy
+				+ ", hp=" + hp + ", attack=" + attack + "]";
+	}
+
+	// GETTER AND SETTER
 }
 

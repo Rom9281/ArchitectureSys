@@ -18,9 +18,9 @@ public class CardService {
 	}
 	
 	public Card getCard(int id) {
-		Optional<Card> hOpt =cRepository.findById(id);
-		if (hOpt.isPresent()) {
-			return hOpt.get();
+		Optional<Card> cOpt =cRepository.findById(id);
+		if (cOpt.isPresent()) {
+			return cOpt.get();
 		}else {
 			return null;
 		}
