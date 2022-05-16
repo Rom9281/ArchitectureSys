@@ -1,5 +1,6 @@
 package com.sp.service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,11 @@ public class CardService {
 		}else {
 			return null;
 		}
+	}
+	
+	public ArrayList<Card> pickCards(){
+		ArrayList<Card> ret =  new ArrayList<Card>();
+		return ret;
 	}
 	
 	
