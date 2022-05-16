@@ -1,5 +1,6 @@
 package com.sp.service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ import com.sp.repository.CardRepository;
 public class CardService {
 	@Autowired
 	CardRepository cRepository;
+	
+	private ArrayList<String> images = new ArrayList<String>();
+	
 	public void addCard(Card c) {
 		Card createdCard=cRepository.save(c);
 		System.out.println(createdCard);
@@ -26,6 +30,8 @@ public class CardService {
 		}
 	}
 	
-	
-
+	public Card createCard() {
+		Card c = null;
+		return c;
+	}
 }
