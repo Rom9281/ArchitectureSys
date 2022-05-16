@@ -24,6 +24,17 @@ public class User {
 	
 	@OneToMany(mappedBy="user")
 	private Collection<Card> cards;
+	
+	public User(String name, String login, String password, String first_name, String email, String imgUrl) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.login = login;
+		this.first_name = first_name;
+		this.email = email;
+		this.imgUrl = imgUrl;
+		this.cards = new ArrayList<Card>();
+		}
 
 	public String getName() {
 		return name;
@@ -44,16 +55,7 @@ public class User {
 	public User() {
 	}
 	
-	public User(String name, String login, String password, String first_name, String email, String imgUrl) {
-		super();
-		this.name = name;
-		this.password = password;
-		this.login = login;
-		this.first_name = first_name;
-		this.email = email;
-		this.imgUrl = imgUrl;
-		this.cards = new ArrayList<Card>();
-	}
+	
 
 	public String getLogin() {
 		return login;
