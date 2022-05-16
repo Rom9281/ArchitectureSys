@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  db:
+    container_name: pgtp
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: tp
+      POSTGRES_PASSWORD: tp
+      POSTGRES_DB: db
+    ports:
+      - "55432:5432"
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: tp@tp.com
+      PGADMIN_DEFAULT_PASSWORD: tp
+    ports:
+      - "5050:80"

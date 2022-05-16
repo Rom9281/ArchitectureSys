@@ -7,7 +7,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.apache.catalina.User;
 
 @Entity
 @Table(name="CARD")
@@ -26,8 +25,8 @@ public class Card {
 	private int attack;
 	
 	@ManyToOne
-    @JoinColumn(name="cart_id", nullable=false)
-	private User owner;
+    @JoinColumn(name="user_id", nullable=false)
+	private User user;
 	
 	
 	public Card() {

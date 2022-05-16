@@ -15,29 +15,47 @@ public class User {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private String nom;
-	private String prenom;
+	private String name;
+	private String first_name;
 	private String login;
 	private String password;
 	private String email;
 	private String imgUrl;
 	
-	@OneToMany(mappedBy="User")
+	@OneToMany(mappedBy="user")
 	private Collection<Card> cards;
+	
+	public User(String name, String login, String password, String first_name, String email, String imgUrl) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.login = login;
+		this.first_name = first_name;
+		this.email = email;
+		this.imgUrl = imgUrl;
+		this.cards = new ArrayList<Card>();
+		}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
 
 	public User() {
 	}
 	
-	public User(String nom, String login, String password, String prenom, String email, String imgUrl) {
-		super();
-		this.nom = nom;
-		this.password = password;
-		this.login = login;
-		this.prenom = prenom;
-		this.email = email;
-		this.imgUrl = imgUrl;
-		this.cards = new ArrayList<Card>();
-	}
+	
 
 	public String getLogin() {
 		return login;
@@ -60,12 +78,6 @@ public class User {
 	}
 
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", imgUrl=" + imgUrl
-				+ "]";
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -74,21 +86,6 @@ public class User {
 		this.id = id;
 	}
 
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
 
 	public String getEmail() {
 		return email;
@@ -105,5 +102,13 @@ public class User {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", first_name=" + first_name + ", login=" + login + ", password="
+				+ password + ", email=" + email + ", imgUrl=" + imgUrl + ", cards=" + cards + "]";
+	}
+	
+	
 
 }
