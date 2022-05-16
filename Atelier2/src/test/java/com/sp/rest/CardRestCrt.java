@@ -16,8 +16,9 @@ package com.sp.rest;
       CardService cService;
       
       @RequestMapping(method=RequestMethod.POST,value="/Card")
-      public void addCard(@RequestBody Card Card) {
-          cService.addCard(Card);
+      public void addCard(@RequestBody Card card) {
+    	  System.out.print(card);
+          cService.addCard(card);
       }
       
       @RequestMapping(method=RequestMethod.GET,value="/Card/{id}")
