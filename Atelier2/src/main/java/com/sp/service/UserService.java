@@ -15,8 +15,9 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 
-	public void addUser(User h) {
-		User createdUser = userRepository.save(h);
+	public void addUser(User u) {
+		u.addCard(null);
+		User createdUser = userRepository.save(u);
 		System.out.println(createdUser);
 	}
 
