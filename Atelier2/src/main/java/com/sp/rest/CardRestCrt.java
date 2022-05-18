@@ -10,18 +10,26 @@ package com.sp.rest;
   import com.sp.model.Card;
   import com.sp.service.CardService;
 
+import antlr.collections.List;
+
   @RestController
   public class CardRestCrt {
       @Autowired
       CardService cService;
       
-      @RequestMapping(method=RequestMethod.POST,value="/Card")
+      @RequestMapping(method=RequestMethod.POST,value="/card")
       public void addCard(@RequestBody Card card) {
     	  System.out.print(card);
           cService.addCard(card);
       }
       
-      @RequestMapping(method=RequestMethod.GET,value="/Card/{id}")
+      @RequestMapping(method=RequestMethod.GET,value="/card")
+      public Iterable<Card> getCards() {
+          Iterable<Card> clist =  cService.getAllCards();
+          return clist;
+      }
+      
+      @RequestMapping(method=RequestMethod.GET,value="/card/{id}")
       public Card getCard(@PathVariable String id) {
           Card c=cService.getCard(Integer.valueOf(id));
           return c;

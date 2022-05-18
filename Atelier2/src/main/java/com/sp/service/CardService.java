@@ -28,7 +28,12 @@ public class CardService {
 		}
 	}
 	
-	public void createCards() {
+	public Iterable<Card> getAllCards() {
+		Iterable<Card> clist = cRepository.findAll();
+		return clist;
+	}
+	
+	public void createCard() {
 		int min = 1;
 		int max = 100;
 		Card c1=new Card("Flippy", "Flippy est un l'un des personnages principaux de la série. Il est probablement le plus aimé du public, sa victoire au tournoi du meilleur personnage le prouvant. Il a sa propre série Ka-pow! Et est jouable dans le jeu vidéo False Alarm.", "Ours", "Armée", "https://static.wikia.nocookie.net/happy-tree-friends/images/e/e8/Flippy_m.jpg/revision/latest/scale-to-width-down/245?cb=20140208160639&path-prefix=fr", ThreadLocalRandom.current().nextInt(min,max+1), ThreadLocalRandom.current().nextInt(min,max+1), ThreadLocalRandom.current().nextInt(min,max+1), ThreadLocalRandom.current().nextInt(min,max+1));

@@ -33,7 +33,6 @@ public class User {
 		this.first_name = first_name;
 		this.email = email;
 		this.imgUrl = imgUrl;
-		this.cards = new ArrayList<Card>();
 		}
 
 	public String getName() {

@@ -13,7 +13,8 @@ import javax.persistence.Table;
 public class Card {
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
+	
 	private String name;
 	private String description;
 	private String family;
@@ -41,7 +42,7 @@ public class Card {
 		this.attack = 0;
 	}
 
-	public Card(String name,String description,String family, String affinity, String imgUrl, int defense, int energy, int hp, int attack) {
+	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack) {
 		this.name = name;
 		this.description = description;
 		this.family = family;
