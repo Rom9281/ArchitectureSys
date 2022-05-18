@@ -14,8 +14,11 @@ import antlr.collections.List;
 public class UserService {
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	CardService cService;
 
 	public void addUser(User h) {
+		cService.createCards(h);
 		User createdUser = userRepository.save(h);
 		System.out.println(createdUser);
 	}

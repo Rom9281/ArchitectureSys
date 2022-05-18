@@ -10,6 +10,7 @@ public class CardFormDTO {
 	private int energy;
 	private int hp;
 	private int attack;
+	private Integer id_user;
 
 	public CardFormDTO() {
 		this.name = "";
@@ -21,8 +22,9 @@ public class CardFormDTO {
 		this.energy = 0;
 		this.hp = 0;
 		this.attack = 0;
+		this.id_user = 0;
 	}
-	public CardFormDTO(String name,String description,String family, String affinity, String imgUrl, int defense , int energy, int hp, int attack) {
+	public CardFormDTO(String name,String description,String family, String affinity, String imgUrl, int defense , int energy, int hp, int attack, int id_user) {
 		this.name = name;
 		this.description = description;
 		this.family = family;
@@ -32,6 +34,7 @@ public class CardFormDTO {
 		this.energy = energy;
 		this.hp = hp;
 		this.attack = attack;
+		this.id_user = id_user;
 	}
 
 	// GETTER AND SETTER
@@ -89,6 +92,12 @@ public class CardFormDTO {
 	}
 	public void setAttack(int attack) {
 		this.attack = attack;
+	}
+	public Integer getId_user() {
+		return id_user;
+	}
+	public void setId_user(Integer id_user) {
+		this.id_user = id_user;
 	}
 	
 	
