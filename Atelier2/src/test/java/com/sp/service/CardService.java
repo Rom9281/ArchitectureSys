@@ -28,6 +28,11 @@ public class CardService {
 		}
 	}
 	
+	public Iterable<Card> getAllCards() {
+		Iterable<Card> clist = cRepository.findAll();
+		return clist;
+	}
+	
 	public void createCard() {
 		int min = 1;
 		int max = 100;
