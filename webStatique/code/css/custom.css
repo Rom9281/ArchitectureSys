@@ -36,3 +36,13 @@ body{
 .overflowHiden{
     overflow:  auto;
 }
+
+.bigButton{
+    height: 100px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    display:block;
+    font-size: x-large;
+}
