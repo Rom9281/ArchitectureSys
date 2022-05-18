@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USER")
+@Table(name="MY_USER")
 public class User {
 	@Id
 	@GeneratedValue
