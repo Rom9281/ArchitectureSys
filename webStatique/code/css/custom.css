@@ -46,3 +46,9 @@ body{
     display:block;
     font-size: x-large;
 }
+
+.createRoomButton{
+    height: 100%;
+    width: 100%;
+    
+}
