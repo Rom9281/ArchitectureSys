@@ -21,6 +21,7 @@ public class UserRestCrt {
 	public void addUser(@RequestBody UserFormDTO userFormDTO) {
 		User user = new User();
 		BeanUtils.copyProperties(userFormDTO, user);
+		
 		uService.addUser(user);
 	}
 	
