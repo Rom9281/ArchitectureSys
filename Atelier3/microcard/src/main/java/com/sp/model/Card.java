@@ -20,11 +20,11 @@ public class Card {
 	private String family;
 	private String affinity;
 	private String imgUrl;
-	private int defense;
-	private int energy;
-	private int hp;
-	private int attack;
-	private int user_id;
+	private Integer defense;
+	private Integer energy;
+	private Integer hp;
+	private Integer attack;
+	private Integer user_id;
 	
 	
 
@@ -43,7 +43,8 @@ public class Card {
 			// pour qu'une vente soit conclue, il faut aussi l'id du vendeur pour qu'il recoive les tunes
 		// créer un attribut 'on_sell'
 	      
-		this.user_id = 0; //alors non enfait
+		this.user_id = 0; //alors non enfait, 
+		// tu veux quoi enfaite
 		//--------------------------------------------------------------------------------------------------------    
 	}
 
@@ -68,13 +69,6 @@ public class Card {
 		this.user_id = user_id;
 	}
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;
