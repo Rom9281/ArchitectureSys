@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.sp.model.User;
@@ -18,18 +19,15 @@ import reactor.core.publisher.Mono;
 public class UserService {
 	@Autowired
 	UserRepository userRepository;
-	// Creation d'un web client pour envoyer les requestes
-	WebClient web_client_card = WebClient.builder()
-	        .baseUrl("http://localhost:3000")
-	        .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-	        .build();
+	
+	RestTemplate rest_Template = new RestTemplate();
 
 	public void addUser(User u) {
 		User createdUser = userRepository.save(u); // Sauvegarde du user dans la db
 		
 		System.out.println(createdUser);
 		
-		this.generateCard(createdUser.getId());
+		this.generateCards(createdUser.getId());
 		
 	}
 
@@ -52,13 +50,13 @@ public class UserService {
 	 * @PARAM User user
 	 * @RETURN Integer Id
 	 * */
-
-	public void generateCard(Integer id) {
+	public void generateCards(Integer id) {
 		// TODO : possiblement gerer le type de retour
-		web_client_card.post()
-		.uri("/generateCards")
-		.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-		.body(Mono.just(id),Integer.class);
+		System.out.println("Generation");
+		
+		
+		System.out.println("done");
+		
 	}
 
 }
