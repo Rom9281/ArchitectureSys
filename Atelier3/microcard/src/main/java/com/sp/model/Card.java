@@ -38,6 +38,7 @@ public class Card {
 		this.energy = 0;
 		this.hp = 0;
 		this.attack = 0;
+		this.user_id = 0;
 	}
 
 	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack) {
