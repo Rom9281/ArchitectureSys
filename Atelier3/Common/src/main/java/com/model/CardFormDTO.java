@@ -1,4 +1,4 @@
-package com.sp.model;
+package com.model;
 
 public class CardFormDTO {
 	private String name;
