@@ -1,8 +1,6 @@
 package com.sp.rest;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,13 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sp.model.Card;
-import com.sp.model.CardFormDTO;
 import com.sp.service.CardService;
 
-import antlr.collections.List;
 
   @RestController
-  public class CardRestCrt {
+  public class CardRestCrt {	
       @Autowired
       CardService cService;
       
@@ -27,7 +23,9 @@ import antlr.collections.List;
     	  cService.createCards(user_id);
       }
       
-    
+//TODO--------------------------------------------------------------------------------------------------------
+      //Reception requete http du market + envoie http de la liste des cards id = 0
+//--------------------------------------------------------------------------------------------------------    
       
       @RequestMapping(method=RequestMethod.GET,value="/card")
       public Iterable<Card> getCards() {
