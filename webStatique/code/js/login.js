@@ -19,7 +19,6 @@ function Connect(){
     var jsonString = JSON.stringify(User); //all the User infos
     console.log(jsonString)
 
-    const element = jsonString; //what we want to post
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -27,7 +26,7 @@ function Connect(){
     };
 
     // TODO change the URL to the User DB
-    fetch('', requestOptions)
+    fetch('insert URL here', requestOptions)
         .then(response => response.json())
             .then (response => callback(response))
             .then (response => response_processing(response))
