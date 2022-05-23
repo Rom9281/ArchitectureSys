@@ -2,11 +2,9 @@ package com.sp.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.sp.model.Card;
 import com.sp.service.CardService;
 
@@ -17,10 +15,12 @@ import com.sp.service.CardService;
       CardService cService;
       
       
-      @RequestMapping(method=RequestMethod.POST,value="/generateCards")
-      public void generateCard(@RequestBody Integer user_id ) {
+      @RequestMapping(method=RequestMethod.POST,value="/generateCards/{user_id}")
+      public Integer generateCards(@PathVariable Integer user_id ) {
+    	  System.out.println("Reception");
     	  System.out.println(user_id);
     	  cService.createCards(user_id);
+    	  return user_id;
       }
       
 //TODO--------------------------------------------------------------------------------------------------------
