@@ -15,12 +15,16 @@ import com.model.CardFormDTO;
 public class MarketService {
 
 	
+	public void requestMarketCard() {
+		List<CardFormDTO> listeCardVente = new ArrayList<CardFormDTO>();
+		//on cree un requete http
+		
+	}
+	
 	public List<CardFormDTO> getMarketCard() {
 		List<CardFormDTO> listeCardVente = new ArrayList<CardFormDTO>();
 		//on cree un requete http
 		return listeCardVente;
 	}
 	
-	
-
 }

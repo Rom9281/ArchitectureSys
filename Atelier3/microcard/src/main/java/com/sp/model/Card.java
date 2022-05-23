@@ -38,7 +38,13 @@ public class Card {
 		this.energy = 0;
 		this.hp = 0;
 		this.attack = 0;
-		this.user_id = 0;
+		//TODO--------------------------------------------------------------------------------------------------------
+	      	//Reception requete http du market + envoie http de la liste des cards id = 0
+			// pour qu'une vente soit conclue, il faut aussi l'id du vendeur pour qu'il recoive les tunes
+		// créer un attribut 'on_sell'
+	      
+		this.user_id = 0; //alors non enfait
+		//--------------------------------------------------------------------------------------------------------    
 	}
 
 	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack, Integer user_id) {

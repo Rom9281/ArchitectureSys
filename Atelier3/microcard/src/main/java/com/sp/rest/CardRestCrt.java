@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sp.model.Card;
 import com.sp.service.CardService;
 
+
   @RestController
-  public class CardRestCrt {
+  public class CardRestCrt {	
       @Autowired
       CardService cService;
       
@@ -22,6 +23,9 @@ import com.sp.service.CardService;
     	  return user_id;
       }
       
+//TODO--------------------------------------------------------------------------------------------------------
+      //Reception requete http du market + envoie http de la liste des cards id = 0
+//--------------------------------------------------------------------------------------------------------    
       
       @RequestMapping(method=RequestMethod.GET,value="/card")
       public Iterable<Card> getCards() {
