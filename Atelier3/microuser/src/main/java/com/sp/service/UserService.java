@@ -19,7 +19,7 @@ public class UserService {
 	
 	RestTemplate rest_template = new RestTemplate();
 	HttpHeaders headers = new HttpHeaders();
-	String url_generate_card = "127.0.0.2:8081/generateCards";
+	String url_generate_card = "http://127.0.0.2:8081/generateCards";
     
 
 	public void addUser(User u) {
@@ -52,12 +52,13 @@ public class UserService {
 	 * */
 	public void generateCards(Integer id) {
 		// TODO : possiblement gerer le type de retour
-		System.out.println("Generation");
+		System.out.println("Generation : " + id.toString());
 		
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<Integer> request = 
 			      new HttpEntity<>(id, headers);
-		Integer resultInteger =rest_template.postForObject(url_generate_card+"/"+id, request,Integer.class);
+		
+		Integer resultInteger =rest_template.postForObject(url_generate_card+"/"+id.toString(), request,Integer.class);
 		
 		
 		System.out.println("done : "+resultInteger.toString());

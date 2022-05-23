@@ -41,7 +41,7 @@ public class Card {
 		this.user_id = 0;
 	}
 
-	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack) {
+	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack, Integer user_id) {
 		this.name = name;
 		this.description = description;
 		this.family = family;
@@ -51,6 +51,7 @@ public class Card {
 		this.energy = energy;
 		this.hp = hp;
 		this.attack = attack;
+		this.user_id = user_id;
 	}
 	
 	public int getUser_id() {
