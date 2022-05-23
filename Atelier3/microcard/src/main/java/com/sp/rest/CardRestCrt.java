@@ -20,28 +20,14 @@ import antlr.collections.List;
       @Autowired
       CardService cService;
       
-      @RequestMapping(method=RequestMethod.POST,value="/card")
-      public void addCard(@RequestBody CardFormDTO cardDto) {
-    	  System.out.print(cardDto);
-    	  
-    	  Card card = new Card();
-    	  BeanUtils.copyProperties(cardDto, card);
-    	  if (cardDto.getId_user() == 0) {
-    		  // associer la carte au market
-    		  
-    	  }
-    	  else {
-			// Si l'id de user existe, lui attribuer
-    	  }
-          cService.addCard(card);
-      }
       
       @RequestMapping(method=RequestMethod.POST,value="/generateCards")
       public void generateCard(@RequestBody Integer user_id ) {
+    	  System.out.println(user_id);
     	  cService.createCards(user_id);
       }
       
-      
+    
       
       @RequestMapping(method=RequestMethod.GET,value="/card")
       public Iterable<Card> getCards() {
