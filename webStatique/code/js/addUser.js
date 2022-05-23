@@ -1,21 +1,25 @@
 function SendUser(){
     // create a json from form
 
-    const form = document.getElementById('addCardForm')
+    const form = document.getElementById('addUserForm')
 
-    var Card = new Object();
-    Card.name = form.elements[0].value;
-    Card.description = form.elements[1].value;
-    Card.imgUrl = form.elements[2].value;
-    console.log(Card.imgUrl);
-    Card.family = form.elements[3].value;
-    Card.affinity = form.elements[4].value;
-    Card.hp= form.elements[5].value;
-    Card.energy = form.elements[6].value;
-    Card.attack= form.elements[7].value;
-    Card.defence= form.elements[8].value;
+    var User = new Object();
+    User.name = document.getElementById("Name").value;
+    User.surname = document.getElementById("Surname").value;
+    User.password = document.getElementById("Password").value;
+    User.repassword = document.getElementById("Re-Password").value;
+    
+    //Check if the two passwords are the same
+    if ((User.password.normalize() === User.repassword.normalize())
+        && !(User.password === "")){
+        console.log("mdp et re-mdp semblables");
+    } else{
+        console.log("/!\\ mdp et re-mdp différents ou vides");
+        reset_password_form();
+        return
+    }
 
-    var jsonString = JSON.stringify(Card); //all the card infos
+    var jsonString = JSON.stringify(User); //all the User infos
     console.log(jsonString)
 
 
@@ -27,29 +31,24 @@ function SendUser(){
         headers: { 'Content-Type': 'application/json' },
         body: jsonString
     };
-    fetch('https://asi2-backend-market.herokuapp.com/card', requestOptions)
+
+    // TODO change the URL to the User DB
+    fetch('', requestOptions)
         .then(response => response.json())
             .then (response => callback(response))
             .catch(error => err_callback(error));
-        // .then(data => element.innerHTML = data.id );
 
-function callback(response){
-    document.getElementById("content").innerHTML = response.value;
-}
+    function callback(response){
+        document.getElementById("content").innerHTML = response.value;
+    }
 
-function err_callback(error){
-    console.log(error);
-}
+    function err_callback(error){
+        console.log(error);
+    }
 
-    // fetch(GET_CHUCK_URL,context)
-    // .then(response => response.json())
-    //     .then(response => callback(response))
-    //     .catch(error => err_callback(error));
-
-    // async function submitForm(e, form){
-    //     e.preventDefault();
-
-    //     const btnSubmit = document.getElementById
-    // }
+    function reset_password_form(){
+        var password = document.getElementById("Password").value="";
+        var Repassword = document.getElementById("Re-Password").value="";
+    }
 
 }
