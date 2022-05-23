@@ -3,24 +3,24 @@ package com.sp.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import com.sp.model.User;
 import com.sp.repository.UserRepository;
-
-import antlr.collections.List;
-import reactor.core.publisher.Mono;
 
 @Service
 public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	
-	RestTemplate rest_Template = new RestTemplate();
+	RestTemplate rest_template = new RestTemplate();
+	HttpHeaders headers = new HttpHeaders();
+	String url_generate_card = "127.0.0.2:8081/generateCards";
+    
 
 	public void addUser(User u) {
 		User createdUser = userRepository.save(u); // Sauvegarde du user dans la db
@@ -54,8 +54,13 @@ public class UserService {
 		// TODO : possiblement gerer le type de retour
 		System.out.println("Generation");
 		
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<Integer> request = 
+			      new HttpEntity<>(id, headers);
+		Integer resultInteger =rest_template.postForObject(url_generate_card+"/"+id, request,Integer.class);
 		
-		System.out.println("done");
+		
+		System.out.println("done : "+resultInteger.toString());
 		
 	}
 
