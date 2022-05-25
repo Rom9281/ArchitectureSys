@@ -27,13 +27,13 @@ import com.sp.service.CardService;
       //Reception requete http du market + envoie http de la liste des cards id = 0
 //--------------------------------------------------------------------------------------------------------    
       
-      @RequestMapping(method=RequestMethod.GET,value="/card")
+      @RequestMapping(method=RequestMethod.GET,value="/getCards")
       public Iterable<Card> getCards() {
           Iterable<Card> clist =  cService.getAllCards();
           return clist;
       }
       
-      @RequestMapping(method=RequestMethod.GET,value="/card/{id}")
+      @RequestMapping(method=RequestMethod.GET,value="/getCards/{id}")
       public Card getCard(@PathVariable String id) {
           Card c=cService.getCard(Integer.valueOf(id));
           return c;
