@@ -1,17 +1,19 @@
-function Connect(){
-    // check if user/pw pair exists and opens main menu page if so 
+//TODO
 
-    const form = document.getElementById('connectionForm')
+function BuyCard(){
 
-    var User = new Object();
+    var Card = new Object();
+    Card.cardName = document.getElementById("Name").value;
     User.surname = document.getElementById("Surname").value;
     User.password = document.getElementById("Password").value;
+    User.repassword = document.getElementById("Re-Password").value;
     
-    //Check if surname or pw is null
-    if ((User.surname != "") &&
-        (User.password != "")){
+    //Check if the two passwords are the same
+    if ((User.password.normalize() === User.repassword.normalize())
+        && !(User.password === "")){
+        console.log("mdp et re-mdp semblables");
     } else{
-        console.log("/!\\ surname and/or pw empty");
+        console.log("/!\\ mdp et re-mdp différents ou vides");
         reset_password_form();
         return
     }
@@ -19,6 +21,10 @@ function Connect(){
     var jsonString = JSON.stringify(User); //all the User infos
     console.log(jsonString)
 
+
+    // Fetch, POST, UrL/Card, headers : Application/json
+
+    const element = jsonString; //what we want to post
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -26,19 +32,10 @@ function Connect(){
     };
 
     // TODO change the URL to the User DB
-    fetch('insert URL here', requestOptions)
+    fetch('', requestOptions)
         .then(response => response.json())
             .then (response => callback(response))
-            .then (response => response_processing(response))
             .catch(error => err_callback(error));
-
-    function response_processing(response){
-        if (response == true){
-            window.location.replace("../menu.html");
-        } else{
-            console.log("/!\\ surname or pw incorrect")
-        }
-    }
 
     function callback(response){
         document.getElementById("content").innerHTML = response.value;
@@ -50,6 +47,7 @@ function Connect(){
 
     function reset_password_form(){
         var password = document.getElementById("Password").value="";
+        var Repassword = document.getElementById("Re-Password").value="";
     }
 
 }

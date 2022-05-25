@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- Site Properties -->
+        <title>create room</title>
+
+        <link rel="stylesheet" type="text/css" href="../lib/Semantic-UI-CSS-master/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+    </head>
+
+    <body>
+        <div class="ui five column grid">
+            <div class="row"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column">
+                <form class="ui form" action="./addData" method="GET" id="createRoomForm">
+                    <h3 class="ui dividing header">Room creation</h3>
+                    <div class="field">
+                        <label>Name</label>
+                        <input type="text" name="Name" placeholder="Name" id="Name">
+                    </div>
+                    <div class="slidecontainer">
+                        <label>Bet</label>
+                        <input name="Bet" type="range" min="100" max="1000" class="slider" id="Bet" oninput="this.nextElementSibling.value = this.value">
+                        <output></output>
+                    </div>
+                    
+                    
+                    <button class="ui button" type="button">Cancel</button>
+                    <button class="ui button" type="button" style="float: right;" onclick="CreateRoom()">
+                        Create
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+<script type="text/javascript" src="./js/createRoom.js"></script>
