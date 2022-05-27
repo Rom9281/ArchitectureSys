@@ -6,6 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.model.CardDTO;
 import com.sp.model.Card;
 import com.sp.repository.CardRepository;
 

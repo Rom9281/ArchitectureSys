@@ -15,6 +15,7 @@ public class Card {
 	@GeneratedValue
 	private Integer id;
 	
+	private Integer price;
 	private String name;
 	private String description;
 	private String family;
@@ -24,7 +25,8 @@ public class Card {
 	private Integer energy;
 	private Integer hp;
 	private Integer attack;
-	private Integer user_id;
+	private Integer userId;
+	private Boolean isToSell = false;
 	
 	
 
@@ -38,17 +40,17 @@ public class Card {
 		this.energy = 0;
 		this.hp = 0;
 		this.attack = 0;
+		this.price = 0;
 		//TODO--------------------------------------------------------------------------------------------------------
 	      	//Reception requete http du market + envoie http de la liste des cards id = 0
 			// pour qu'une vente soit conclue, il faut aussi l'id du vendeur pour qu'il recoive les tunes
-		// créer un attribut 'on_sell'
 	      
-		this.user_id = 0; //alors non enfait, 
+		this.userId = 0; //alors non enfait, 
 		// tu veux quoi enfaite
 		//--------------------------------------------------------------------------------------------------------    
 	}
 
-	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack, Integer user_id) {
+	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack, Integer userId) {
 		this.name = name;
 		this.description = description;
 		this.family = family;
@@ -58,15 +60,17 @@ public class Card {
 		this.energy = energy;
 		this.hp = hp;
 		this.attack = attack;
-		this.user_id = user_id;
+		this.userId = userId;
 	}
 	
-	public int getUser_id() {
-		return user_id;
+	// GETTER AND SETTER
+	
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUserId(int user_id) {
+		this.userId = user_id;
 	}
 	
 
@@ -141,14 +145,28 @@ public class Card {
 	public void setAttack(int attack) {
 		this.attack = attack;
 	}
+	
+	public boolean getIsToSell() {
+		return isToSell;
+	}
+	
+	public void setIsToSell(Boolean isToSell) {
+		this.isToSell = isToSell;
+	}
+	
+	public Integer getPrice() {
+		return price;
+	}
+	
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
 
 	@Override
 	public String toString() {
-		return "Card [id=" + id + ", name=" + name + ", description=" + description + ", family=" + family
-				+ ", affinity=" + affinity + ", imgUrl=" + imgUrl + ", defense=" + defense + ", energy=" + energy
-				+ ", hp=" + hp + ", attack=" + attack + "]";
+		return "Card [id=" + id + ", userId=" + userId + ", name=" + name + ", description=" + description 
+				+ ", family=" + family + ", affinity=" + affinity + ", imgUrl=" + imgUrl + ", defense=" 
+				+ defense + ", energy=" + energy + ", hp=" + hp + ", attack=" + attack + "]";
 	}
-
-	// GETTER AND SETTER
 }
 

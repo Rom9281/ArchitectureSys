@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
+
+import com.model.CardDTO;
 import com.sp.model.Card;
 
 public interface CardRepository extends CrudRepository<Card, Integer> {
