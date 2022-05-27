@@ -21,10 +21,16 @@ public class User {
 	private String password;
 	private String email;
 	private String imgUrl;
+	private int money;
 	private Collection<Integer> cards;
+	
+	
+	public User() {
+	}
 	
 	public User(String name, String login, String password, String first_name, String email, String imgUrl) {
 		super();
+		this.setMoney(5000);
 		this.name = name;
 		this.password = password;
 		this.login = login;
@@ -48,10 +54,6 @@ public class User {
 	public void setFirst_name(String first_name) {
 		this.first_name = first_name;
 	}
-
-	public User() {
-	}
-	
 	
 
 	public String getLogin() {
@@ -103,6 +105,14 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", first_name=" + first_name + ", login=" + login + ", password="
 				+ password + ", email=" + email + ", imgUrl=" + imgUrl + ", cards=" + cards + "]";
+	}
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
 	}
 	
 	
