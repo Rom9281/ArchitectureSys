@@ -15,6 +15,7 @@ public class User {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	
 	private String name;
 	private String first_name;
 	private String login;
@@ -71,11 +72,6 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public void addCard(Integer id_card) {
-		this.cards.add(id_card);
-	}
-
 
 	public Integer getId() {
 		return id;
@@ -104,7 +100,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", first_name=" + first_name + ", login=" + login + ", password="
-				+ password + ", email=" + email + ", imgUrl=" + imgUrl + ", cards=" + cards + "]";
+				+ password + ", email=" + email + ", imgUrl=" + imgUrl + "]";
 	}
 
 	public int getMoney() {

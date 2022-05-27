@@ -20,11 +20,11 @@ public class Card {
 	private String family;
 	private String affinity;
 	private String imgUrl;
-	private int defense;
-	private int energy;
-	private int hp;
-	private int attack;
-	private int user_id;
+	private Integer defense;
+	private Integer energy;
+	private Integer hp;
+	private Integer attack;
+	private Integer user_id;
 	
 	
 
@@ -38,10 +38,17 @@ public class Card {
 		this.energy = 0;
 		this.hp = 0;
 		this.attack = 0;
-		this.user_id = 0;
+		//TODO--------------------------------------------------------------------------------------------------------
+	      	//Reception requete http du market + envoie http de la liste des cards id = 0
+			// pour qu'une vente soit conclue, il faut aussi l'id du vendeur pour qu'il recoive les tunes
+		// créer un attribut 'on_sell'
+	      
+		this.user_id = 0; //alors non enfait, 
+		// tu veux quoi enfaite
+		//--------------------------------------------------------------------------------------------------------    
 	}
 
-	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack, int user_id) {
+	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack, Integer user_id) {
 		this.name = name;
 		this.description = description;
 		this.family = family;
@@ -62,13 +69,6 @@ public class Card {
 		this.user_id = user_id;
 	}
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;

@@ -10,25 +10,31 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sp.model.User;
 import com.sp.service.UserService;
 
+
 @RestController
 public class UserRestCrt {
 	@Autowired
 	UserService uService;
-
-	@RequestMapping(method = RequestMethod.POST, value = "/user")
+	
+	/**
+	 * 
+	 * */
+	@RequestMapping(method = RequestMethod.POST, value = "/createUser")
 	public void addUser(@RequestBody User user) {
 		uService.addUser(user);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/user")
 	public Iterable<User> getAllUser() {
-		Iterable<User> c = uService.getAllUser();
-		return c;
+		Iterable<User> ulist = uService.getAllUser();
+		return ulist;
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/user/{id}")
 	public User getUser(@PathVariable String id) {
-		User c = uService.getUser(Integer.valueOf(id));
-		return c;
+		User u = uService.getUser(Integer.valueOf(id));
+		return u;
 	}
+	
+	
 }
