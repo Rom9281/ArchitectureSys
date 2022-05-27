@@ -67,28 +67,28 @@ public class CardFormDTO {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	public int getDefense() {
+	public Integer getDefense() {
 		return defense;
 	}
-	public void setDefense(int defense) {
+	public void setDefense(Integer defense) {
 		this.defense = defense;
 	}
-	public int getEnergy() {
+	public Integer getEnergy() {
 		return energy;
 	}
-	public void setEnergy(int energy) {
+	public void setEnergy(Integer energy) {
 		this.energy = energy;
 	}
-	public int getHp() {
+	public Integer getHp() {
 		return hp;
 	}
-	public void setHp(int hp) {
+	public void setHp(Integer hp) {
 		this.hp = hp;
 	}
-	public int getAttack() {
+	public Integer getAttack() {
 		return attack;
 	}
-	public void setAttack(int attack) {
+	public void setAttack(Integer attack) {
 		this.attack = attack;
 	}
 	public Integer getPrice() {
@@ -97,6 +97,4 @@ public class CardFormDTO {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-	
-	
 }

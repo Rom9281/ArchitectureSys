@@ -1,14 +1,19 @@
 package com.sp.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.model.CardDTO;
 import com.sp.model.Card;
 import com.sp.repository.CardRepository;
+
+import java.util.List;
 
 @Service
 public class CardService {
@@ -50,5 +55,20 @@ public class CardService {
 		addCard(c3);
 		addCard(c4);
 		addCard(c5);
+	}
+
+	public ArrayList<CardDTO> getUserCards(Integer user_id) {
+		List<Card> userCards = cRepository.findByUserId(user_id);
+		ArrayList<CardDTO> arrayUserCards = new ArrayList<CardDTO>();
+		for (Card card : userCards) {
+			arrayUserCards.add(this.cardToCardDTO(card));			
+		}
+		return arrayUserCards;
+	}
+
+	public CardDTO cardToCardDTO(Card card) {
+		CardDTO cardDTO = new CardDTO();
+		BeanUtils.copyProperties(card, cardDTO);
+		return cardDTO;
 	}
 }

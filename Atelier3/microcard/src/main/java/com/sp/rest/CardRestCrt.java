@@ -1,5 +1,7 @@
 package com.sp.rest;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +16,7 @@ import com.model.CardFormDTO;
 import com.sp.model.Card;
 import com.sp.service.CardService;
 
-import antlr.collections.List;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,16 +38,23 @@ import com.sp.service.CardService;
     	  BeanUtils.copyProperties(cardFormDTO, card);
           cService.addCard(card);
       }
+      // Requête pour récupérer toutes les cartes d'un utilisateur
+      @GetMapping(value = "/cards")
+      public ArrayList<CardDTO> getUserCards(@PathVariable Integer user_id) {
+    	  System.out.println("Récupération des cartes de l'utilisateur id=" + user_id);
+    	  return cService.getUserCards(user_id);
+      }
       
+      // Attribuer des cartes pour l'utilisateur qui vient d'être créé
       @RequestMapping(method=RequestMethod.POST,value="/generateCards/{user_id}")
-      public Integer generateCards(@PathVariable Integer user_id ) {
+      public Integer generateCards(@PathVariable Integer user_id) {
     	  System.out.println("Reception");
     	  System.out.println(user_id);
     	  cService.createCards(user_id);
     	  return user_id;
       }
       
-//TODO--------------------------------------------------------------------------------------------------------
+//TODO----------------------------------------------------------------------------------------------------
       //Reception requete http du market + envoie http de la liste des cards id = 0
 //--------------------------------------------------------------------------------------------------------    
       
@@ -57,9 +66,7 @@ import com.sp.service.CardService;
       
       @RequestMapping(method=RequestMethod.GET,value="/card/{id}")
       public CardDTO getCard(@PathVariable String id) {
-          Card c= cService.getCard(Integer.valueOf(id));
-          CardDTO cardDTO = new CardDTO();
-          BeanUtils.copyProperties(c, cardDTO);
-          return cardDTO;
+          Card card = cService.getCard(Integer.valueOf(id));
+          return cService.cardToCardDTO(card);
       }
   }

@@ -1,7 +1,6 @@
 package com.model;
 
 public class CardDTO {
-	private Integer price;
 	private String name;
 	private String description;
 	private String family;
@@ -11,6 +10,7 @@ public class CardDTO {
 	private Integer energy;
 	private Integer hp;
 	private Integer attack;
+	private Integer price;
 	private Integer userId;
 
 	public CardDTO() {
@@ -26,6 +26,7 @@ public class CardDTO {
 		this.userId = 0;
 		this.price = 0;
 	}
+	
 	public CardDTO(String name,String description,String family, String affinity, String imgUrl, Integer defense , Integer energy, Integer hp, Integer attack, Integer userId, Integer price) {
 		this.name = name;
 		this.description = description;
@@ -37,7 +38,7 @@ public class CardDTO {
 		this.hp = hp;
 		this.attack = attack;
 		this.userId = userId;
-		this.price = price;
+		this.price = price; 
 	}
 
 	// GETTER AND SETTER
@@ -72,28 +73,28 @@ public class CardDTO {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	public int getDefense() {
+	public Integer getDefense() {
 		return defense;
 	}
-	public void setDefense(int defense) {
+	public void setDefense(Integer defense) {
 		this.defense = defense;
 	}
-	public int getEnergy() {
+	public Integer getEnergy() {
 		return energy;
 	}
-	public void setEnergy(int energy) {
+	public void setEnergy(Integer energy) {
 		this.energy = energy;
 	}
-	public int getHp() {
+	public Integer getHp() {
 		return hp;
 	}
-	public void setHp(int hp) {
+	public void setHp(Integer hp) {
 		this.hp = hp;
 	}
-	public int getAttack() {
+	public Integer getAttack() {
 		return attack;
 	}
-	public void setAttack(int attack) {
+	public void setAttack(Integer attack) {
 		this.attack = attack;
 	}
 	public Integer getUserId() {
@@ -101,5 +102,11 @@ public class CardDTO {
 	}
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+	public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 }
