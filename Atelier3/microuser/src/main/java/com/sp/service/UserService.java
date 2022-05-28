@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,12 +18,18 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder; // Bibliotheque de securite
+	
 	RestTemplate rest_template = new RestTemplate();
 	HttpHeaders headers = new HttpHeaders();
 	String url_generate_card = "http://127.0.0.2:8081/generateCards";
     
 
 	public void addUser(User u) {
+		
+		u.setPassword(passwordEncoder.encode(u.getPassword())); // Hashage du mdp
+		
 		User createdUser = userRepository.save(u); // Sauvegarde du user dans la db
 		
 		System.out.println(createdUser);
@@ -39,6 +46,16 @@ public class UserService {
 			return null;
 		}
 	}
+	
+	public User getUserByLogin(String login) {
+		Optional<User> uOpt = userRepository.findByLogin(login);
+		if (uOpt.isPresent()) {
+			return uOpt.get();
+		} else {
+			return null;
+		}
+	}
+	
 	
 	public Iterable<User> getAllUser() {
 		Iterable<User> uOpt = userRepository.findAll();

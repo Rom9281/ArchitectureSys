@@ -36,5 +36,13 @@ public class UserRestCrt {
 		return u;
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/login")
+	public Boolean login(@PathVariable User user) {
+		
+		return true;
+	}
+	
+	
+	
 	
 }

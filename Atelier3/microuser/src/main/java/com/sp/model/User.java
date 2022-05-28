@@ -1,12 +1,8 @@
 package com.sp.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -53,7 +49,6 @@ public class User {
 	}
 	
 	
-
 	public String getLogin() {
 		return login;
 	}
@@ -99,7 +94,6 @@ public class User {
 		return "User [id=" + id + ", name=" + name + ", first_name=" + first_name + ", login=" + login + ", password="
 				+ password + ", email=" + email + ", imgUrl=" + imgUrl + "]";
 	}
-	
 	
 
 }
