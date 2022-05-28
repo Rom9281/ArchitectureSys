@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
+
+import com.model.CardDTO;
 import com.sp.model.Card;
 
 public interface CardRepository extends CrudRepository<Card, Integer> {
 
 	public List<Card> findByName(String name);
 	public Optional<Card> findById(Integer id);
+	public List<Card> findByUserId(Integer id);
 	public Iterable<Card> findAll();
 }

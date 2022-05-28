@@ -1,6 +1,6 @@
 package com.model;
 
-public class CardFormDTO {
+public class CardDTO {
 	private String name;
 	private String description;
 	private String family;
@@ -10,9 +10,10 @@ public class CardFormDTO {
 	private Integer energy;
 	private Integer hp;
 	private Integer attack;
-	private Integer price = 100;
+	private Integer price;
+	private Integer userId;
 
-	public CardFormDTO() {
+	public CardDTO() {
 		this.name = "";
 		this.description = "";
 		this.family = "";
@@ -22,8 +23,11 @@ public class CardFormDTO {
 		this.energy = 0;
 		this.hp = 0;
 		this.attack = 0;
+		this.userId = 0;
+		this.price = 0;
 	}
-	public CardFormDTO(String name,String description,String family, String affinity, String imgUrl, Integer defense , Integer energy, Integer hp, Integer attack) {
+	
+	public CardDTO(String name,String description,String family, String affinity, String imgUrl, Integer defense , Integer energy, Integer hp, Integer attack, Integer userId, Integer price) {
 		this.name = name;
 		this.description = description;
 		this.family = family;
@@ -33,6 +37,8 @@ public class CardFormDTO {
 		this.energy = energy;
 		this.hp = hp;
 		this.attack = attack;
+		this.userId = userId;
+		this.price = price; 
 	}
 
 	// GETTER AND SETTER
@@ -90,6 +96,12 @@ public class CardFormDTO {
 	}
 	public void setAttack(Integer attack) {
 		this.attack = attack;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	public Integer getPrice() {
 		return price;
