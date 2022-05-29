@@ -10,6 +10,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
 	public List<User> findByName(String name);
 	public Optional<User> findById(Integer id);
-	public Optional<User> findByLogin(Integer login);
+	public Optional<User> findByLogin(String login);
 	public Iterable<User> findAll();
 }

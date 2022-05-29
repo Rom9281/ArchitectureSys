@@ -1,10 +1,17 @@
 function Connect(){
+    console.log("OK");
+
+    const target_url = "http://127.0.0.1:8081/login"
     // check if user/pw pair exists and opens main menu page if so 
 
     const form = document.getElementById('connectionForm')
 
     var User = new Object();
-    User.surname = document.getElementById("Surname").value;
+    User.name = "";
+    User.first_name = "";
+    User.email = "";
+    User.imgUrl="";
+    User.login = document.getElementById("Login").value; // modification de surname a login
     User.password = document.getElementById("Password").value;
     
     //Check if surname or pw is null
@@ -20,13 +27,14 @@ function Connect(){
     console.log(jsonString)
 
     const requestOptions = {
+        mode: 'no-cors',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: jsonString
     };
 
     // TODO change the URL to the User DB
-    fetch('insert URL here', requestOptions)
+    fetch(target_url, requestOptions)
         .then(response => response.json())
             .then (response => callback(response))
             .then (response => response_processing(response))
