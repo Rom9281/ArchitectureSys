@@ -75,7 +75,7 @@ public class UserService {
 			User same_login_u = this.getUserByLogin(u.getLogin()); // Recupere l'utilisateur avec un login meme que celui dont on demande la verification
 			
 			if(same_login_u != null) { // Si il a ete trouve
-				ret = ( same_login_u.getPassword() == passwordEncoder.encode(u.getPassword()) ); // verifie si il y a le meme mdp
+				ret = passwordEncoder.matches(u.getPassword(), same_login_u.getPassword());// verifie si il y a le meme mdp
 			}
 		}
 		
@@ -119,11 +119,8 @@ public class UserService {
 		
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<Integer> request = new HttpEntity<>(id, headers);
+		rest_template.postForObject(url_generate_card+"/"+id.toString(), request,Integer.class);
 		
-		Integer resultInteger = rest_template.postForObject(url_generate_card+"/"+id.toString(), request,Integer.class);
-		
-		
-		System.out.println("Cards generated : "+resultInteger.toString());
 		
 	}
 

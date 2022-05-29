@@ -33,15 +33,17 @@ function Connect(){
         body: jsonString
     };
 
-    // TODO change the URL to the User DB
     fetch(target_url, requestOptions)
-        .then(response => response.json())
-            .then (response => callback(response))
-            .then (response => response_processing(response))
-            .catch(error => err_callback(error));
+        //.then(response => response.text())
+            //.then (response => callback(response))
+            .then(data => response_processing(data));
+            //.then (response => response_processing(response))
+            //.catch(error => err_callback(error));
 
     function response_processing(response){
-        if (response == true){
+        console.log(response)
+        console.log(typeof(response))
+        if (response == "true"){
             window.location.replace("../menu.html");
         } else{
             console.log("/!\\ surname or pw incorrect")
@@ -49,6 +51,8 @@ function Connect(){
     }
 
     function callback(response){
+        console.log(response)
+        console.log(typeof(response))
         document.getElementById("content").innerHTML = response.value;
     }
 
