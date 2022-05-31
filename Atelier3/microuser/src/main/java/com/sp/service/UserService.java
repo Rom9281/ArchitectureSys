@@ -24,7 +24,7 @@ public class UserService {
 	
 	RestTemplate rest_template = new RestTemplate();
 	HttpHeaders headers = new HttpHeaders();
-	String url_generate_card = "http://127.0.0.2:8082/generateCards";
+	String url_generate_card = "http://127.0.0.3:8082/generateCards";
 	
 	ObjectMapper mapper = new ObjectMapper();
     

@@ -1,7 +1,7 @@
 function Connect(){
     console.log("OK");
 
-    const target_url = "http://127.0.0.1:8081/login"
+    const target_url = "http://127.0.0.2:8081/login"
     // check if user/pw pair exists and opens main menu page if so 
 
     const form = document.getElementById('connectionForm')
@@ -27,33 +27,31 @@ function Connect(){
     console.log(jsonString)
 
     const requestOptions = {
-        mode: 'no-cors',
+        //mode: 'no-cors',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: jsonString
     };
 
     fetch(target_url, requestOptions)
-        //.then(response => response.text())
+        .then(response => response.text())
             //.then (response => callback(response))
-            .then(data => response_processing(data));
-            //.then (response => response_processing(response))
-            //.catch(error => err_callback(error));
+            .then(response=> response_processing(response))
+            .catch(error => err_callback(error));
 
     function response_processing(response){
-        console.log(response)
+        console.log(response.body)
         console.log(typeof(response))
         if (response == "true"){
             window.location.replace("../menu.html");
         } else{
+            document.getElementById("content").innerHTML = "Indentifiants mauvais";
             console.log("/!\\ surname or pw incorrect")
         }
     }
 
     function callback(response){
-        console.log(response)
-        console.log(typeof(response))
-        document.getElementById("content").innerHTML = response.value;
+        document.getElementById("validation").innerHTML = response.value;
     }
 
     function err_callback(error){
