@@ -1,7 +1,7 @@
 function Connect(){
     console.log("OK");
 
-    const target_url = "http://127.0.0.2:8081/login"
+    const target_url = "http://127.0.0.2:8082/login"
     // check if user/pw pair exists and opens main menu page if so 
 
     const form = document.getElementById('connectionForm')
