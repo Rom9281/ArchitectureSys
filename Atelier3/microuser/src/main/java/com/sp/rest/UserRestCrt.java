@@ -2,21 +2,28 @@ package com.sp.rest;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.model.UserDTO;
 import com.sp.model.User;
 import com.sp.service.UserService;
 
+/**
+ * ! SECURITY THREAT:
+ * Authoriser la cross origine policy porte atteinte a la securite,
+ * a utiliser UNIQUEMENT POUR LES TEST!!!!!!!!!
+ * */
 
 @RestController
+@CrossOrigin
 public class UserRestCrt {
 	@Autowired
 	UserService uService;
+	
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/createUser")
 	public void addUser(@RequestBody User user) {
@@ -36,4 +43,10 @@ public class UserRestCrt {
         BeanUtils.copyProperties(u, userDTO);
 		return userDTO;
 	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/login")
+	public Boolean login(@RequestBody String json){
+		return uService.verifyUser(json);
+	}
+	
 }

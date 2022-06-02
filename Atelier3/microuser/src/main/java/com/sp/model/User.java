@@ -1,12 +1,8 @@
 package com.sp.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -52,6 +48,7 @@ public class User {
 	public void setFirst_name(String first_name) {
 		this.first_name = first_name;
 	}
+	
 	public String getLogin() {
 		return login;
 	}
