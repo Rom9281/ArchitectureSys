@@ -37,10 +37,10 @@ public class Comm {
 	}
 	
 	// URL: http://localhost:8083/card/market
-	public static List<UserDTO> getCardsMarket() {
+	public static List<CardDTO> getCardsMarket() {
 		RestTemplate restTemplate = new RestTemplate();
-		UserDTO[] listuserDTO = restTemplate.getForObject(URL_CARDSERVICE+"/market", UserDTO[].class);
-		List<UserDTO> listeCardVente = Arrays.asList(listuserDTO);
+		CardDTO[] listcardDTO = restTemplate.getForObject(URL_CARDSERVICE+"/market", CardDTO[].class);
+		List<CardDTO> listeCardVente = Arrays.asList(listcardDTO);
 		return listeCardVente;
 		}
 }
