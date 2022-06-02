@@ -12,6 +12,7 @@ public class CardDTO {
 	private Integer attack;
 	private Integer price;
 	private Integer userId;
+	private Boolean toSell;
 
 	public CardDTO() {
 		this.name = "";
@@ -25,9 +26,10 @@ public class CardDTO {
 		this.attack = 0;
 		this.userId = 0;
 		this.price = 0;
+		this.setToSell(false);
 	}
 	
-	public CardDTO(String name,String description,String family, String affinity, String imgUrl, Integer defense , Integer energy, Integer hp, Integer attack, Integer userId, Integer price) {
+	public CardDTO(String name,String description,String family, String affinity, String imgUrl, Integer defense , Integer energy, Integer hp, Integer attack, Integer userId, Boolean toSell) {
 		this.name = name;
 		this.description = description;
 		this.family = family;
@@ -38,7 +40,8 @@ public class CardDTO {
 		this.hp = hp;
 		this.attack = attack;
 		this.userId = userId;
-		this.price = price; 
+		this.price = price;
+		this.setToSell(toSell);
 	}
 
 	// GETTER AND SETTER
@@ -108,5 +111,13 @@ public class CardDTO {
 	}
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+
+	public Boolean getToSell() {
+		return toSell;
+	}
+
+	public void setToSell(Boolean toSell) {
+		this.toSell = toSell;
 	}
 }
