@@ -53,7 +53,7 @@ import com.sp.service.CardService;
       }
       
       // Attribuer des cartes pour l'utilisateur qui vient d'être créé
-      @RequestMapping(method=RequestMethod.POST,value="/generateCards/{user_id}")
+      @RequestMapping(method=RequestMethod.POST,value="/generateCards/{userId}")
       public Integer generateCards(@PathVariable Integer userId) {
     	  System.out.println("Création de cartes pour l'utilisateur: id="+userId);
     	  System.out.println(userId);
