@@ -22,9 +22,9 @@ import com.sp.tools.Comm;
 public class MarketService {
 
 	
-	public List<UserDTO> requestMarketCard() {
+	public List<CardDTO> requestMarketCard() {
 		
-		List<UserDTO> listeCardVente = Comm.getCardsMarket();
+		List<CardDTO> listeCardVente = Comm.getCardsMarket();
 		System.out.println(listeCardVente);
 		return listeCardVente;
 		}
