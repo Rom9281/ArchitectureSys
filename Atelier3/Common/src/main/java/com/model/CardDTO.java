@@ -1,20 +1,23 @@
 package com.model;
 
 public class CardDTO {
+	
 	private Integer id;
+	
 	private String name;
 	private String description;
 	private String family;
 	private String affinity;
 	private String imgUrl;
+	
 	private Integer defense;
 	private Integer energy;
 	private Integer hp;
 	private Integer attack;
 	private Integer price;
 	private Integer userId;
-	private Boolean isToSell;
 	
+	private Boolean isToSell;
 	
 	public CardDTO() {
 		this.setId(0);
