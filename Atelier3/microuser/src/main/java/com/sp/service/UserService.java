@@ -119,7 +119,7 @@ public class UserService {
 		
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<Integer> request = new HttpEntity<>(id, headers);
-		rest_template.postForObject(url_generate_card+"/"+id.toString(), request,Integer.class);
+		rest_template.postForObject(url_generate_card+"/"+id.toString(), request, Integer.class);
 		
 		
 	}

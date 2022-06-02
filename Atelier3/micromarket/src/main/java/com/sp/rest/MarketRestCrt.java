@@ -1,6 +1,7 @@
 package com.sp.rest;
 
-  import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,24 +13,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.model.CardDTO;
 import com.model.CardFormDTO;
+import com.model.UserDTO;
 import com.sp.service.MarketService;
-import antlr.collections.List;
 
   @RestController
   public class MarketRestCrt {
+	  
       @Autowired
       MarketService mService;
       
       // GET page de choix entre le market de vente, d'achat ou pour les rooms
       @GetMapping(value="/market")
-      public void requestMarket() {
-    	mService.requestMarketCard();
+      public List<UserDTO> requestMarket() {
+    	List<UserDTO> uList = mService.requestMarketCard();
+    	return uList;
       }
       
       // GET pour obtenir l'affichage du market
       @RequestMapping(method=RequestMethod.GET,value="/market/buy")
       public void diplayMarket() {
-    	  
+    	  ;
 	  }
       
       // GET pour avoir l'interface de vente des cartes de l'utilisateur connecté

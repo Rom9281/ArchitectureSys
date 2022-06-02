@@ -1,13 +1,17 @@
 package com.sp.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
+import javax.validation.Path.ReturnValueNode;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.model.CardDTO;
 import com.model.CardFormDTO;
@@ -18,10 +22,17 @@ import com.sp.tools.Comm;
 public class MarketService {
 
 	
-	public void requestMarketCard() {
-		List<CardDTO> listeCardVente = new ArrayList<CardDTO>();
-		//on cree un requete http
-	}
+	public List<UserDTO> requestMarketCard() {
+		
+		
+		RestTemplate restTemplate = new RestTemplate();
+		UserDTO[] listuserDTO = restTemplate.getForObject("http://127.0.0.3:8083/card/market", UserDTO[].class);
+		
+		List<UserDTO> listeCardVente = Arrays.asList(listuserDTO);
+		
+		System.out.println(listeCardVente);
+		return listeCardVente;
+		}
 	
 	public ArrayList<CardDTO> getSellableMarketCards() {
 		
