@@ -17,11 +17,11 @@
     "family":"Elan",
     "affinity":"Dinosaure",
     "imgUrl":"https://static.wikia.nocookie.net/happy-tree-friends/images/d/d6/Imagedelumpy2.jpg/revision/latest/scale-to-width-down/156?cb=20130529101041&path-prefix=fr",
-    "defense":49
-    "energy":36
-    "hp":87
-    "attack":16
-    "userId":2
+    "defense":49,
+    "energy":36,
+    "hp":87,
+    "attack":16,
+    "userId":2,
     "isToSell": true
 }
 {
@@ -30,11 +30,11 @@
     "family":"Cornichon",
     "affinity":"Chapeau",
     "imgUrl":"https://static.wikia.nocookie.net/happy-tree-friends/images/0/07/Imagecornichon.jpg/revision/latest/scale-to-width-down/230?cb=20130529180847&path-prefix=fr",
-    "defense":15
-    "energy":26
-    "hp":49
-    "attack":78
-    "userId":3
+    "defense":15,
+    "energy":26,
+    "hp":49,
+    "attack":78,
+    "userId":3,
     "isToSell": true
 }
 {
@@ -43,11 +43,11 @@
     "family":"Raton-Laveur",
     "affinity":"Voleur",
     "imgUrl":"https://static.wikia.nocookie.net/happy-tree-friends/images/6/69/Liftyetshifty.jpg/revision/latest/scale-to-width-down/300?cb=20130929085951&path-prefix=fr",
-    "defense":63
-    "energy":49
-    "hp":12
-    "attack":13
-    "userId":4
+    "defense":63,
+    "energy":49,
+    "hp":12,
+    "attack":13,
+    "userId":4,
     "isToSell": false
 }
 {
@@ -56,10 +56,10 @@
     "family":"Marmotte",
     "affinity":"Taper",
     "imgUrl":"https://static.wikia.nocookie.net/happy-tree-friends/images/6/68/Cro-marmot_m.jpg/revision/latest/scale-to-width-down/271?cb=20140208161629&path-prefix=fr",
-    "defense":72
-    "energy":41
-    "hp":61
-    "attack":31
-    "userId":5
+    "defense":72,
+    "energy":41,
+    "hp":61,
+    "attack":31,
+    "userId":5,
     "isToSell": true
 }
