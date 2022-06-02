@@ -95,7 +95,7 @@ public class CardService {
 	public Card cardDTOToCard(CardDTO cardDTO) {
 		Card card = new Card();
 		BeanUtils.copyProperties(cardDTO,card);
-		return null;
+		return card;
 	}
 	
 	public CardDTO cardToCardDTO(Card card) {

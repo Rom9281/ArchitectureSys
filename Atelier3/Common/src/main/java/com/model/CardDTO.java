@@ -14,7 +14,8 @@ public class CardDTO {
 	private Integer price;
 	private Integer userId;
 	private Boolean isToSell;
-
+	
+	
 	public CardDTO() {
 		this.setId(0);
 		this.name = "";
@@ -31,7 +32,37 @@ public class CardDTO {
 		this.setIsToSell(false);
 	}
 	
+	/**
+	 * 
+	 * @param name
+	 * @param description
+	 * @param family
+	 * @param affinity
+	 * @param imgUrl
+	 * @param defense
+	 * @param energy
+	 * @param hp
+	 * @param attack
+	 * @param userId
+	 * @param isToSell
+	 */
 	public CardDTO(String name,String description,String family, String affinity, String imgUrl, Integer defense , Integer energy, Integer hp, Integer attack, Integer userId, Boolean isToSell) {
+		this.name = name;
+		this.description = description;
+		this.family = family;
+		this.affinity = affinity;
+		this.imgUrl=imgUrl;
+		this.defense = defense;
+		this.energy = energy;
+		this.hp = hp;
+		this.attack = attack;
+		this.userId = userId;
+		this.price = 100;
+		this.isToSell = isToSell;
+	}
+	
+	public CardDTO(Integer id, String name,String description,String family, String affinity, String imgUrl, Integer defense , Integer energy, Integer hp, Integer attack, Integer userId, Boolean isToSell) {
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.family = family;

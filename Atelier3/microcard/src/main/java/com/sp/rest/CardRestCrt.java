@@ -32,10 +32,8 @@ import com.sp.service.CardService;
       CardService cService;
       
       @RequestMapping(method=RequestMethod.POST,value="/card")
-      public void addCard(@RequestBody CardFormDTO cardFormDTO) {
-    	  System.out.print(cardFormDTO);
-    	  CardDTO cardDTO = new CardDTO();
-    	  BeanUtils.copyProperties(cardFormDTO, cardDTO);
+      public void addCard(@RequestBody CardDTO cardDTO) {
+    	  System.out.print(cardDTO);
           cService.addCard(cardDTO);
       }
       
@@ -62,6 +60,7 @@ import com.sp.service.CardService;
     	  cService.createCards(userId);
     	  return userId;
       }
+      
       
       @GetMapping("/card/market")
       public List<CardDTO> getMarketCards() {
