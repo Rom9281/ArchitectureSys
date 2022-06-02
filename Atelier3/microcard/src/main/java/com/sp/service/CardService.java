@@ -77,7 +77,7 @@ public class CardService {
 	}
 	
 	public List<CardDTO> cardsOfMarket() {
-		List<Card> marketCards = cRepository.FindByIsToSellTrue();
+		List<Card> marketCards = cRepository.findByIsToSellTrue();
 		List<CardDTO> cardsDTOList = new ArrayList<CardDTO>();
 		for (Card card : marketCards) {
 			cardsDTOList.add(cardToCardDTO(card));
