@@ -18,6 +18,7 @@ import com.sp.service.MarketService;
 
   @RestController
   public class MarketRestCrt {
+	  
       @Autowired
       MarketService mService;
       
@@ -31,7 +32,7 @@ import com.sp.service.MarketService;
       // GET pour obtenir l'affichage du market
       @RequestMapping(method=RequestMethod.GET,value="/market/buy")
       public void diplayMarket() {
-    	  
+    	  ;
 	  }
       
       // GET pour avoir l'interface de vente des cartes de l'utilisateur connecté
