@@ -24,15 +24,11 @@ public class MarketService {
 	
 	public List<UserDTO> requestMarketCard() {
 		
-		
-		RestTemplate restTemplate = new RestTemplate();
-		UserDTO[] listuserDTO = restTemplate.getForObject("http://127.0.0.3:8083/card/market", UserDTO[].class);
-		
-		List<UserDTO> listeCardVente = Arrays.asList(listuserDTO);
-		
+		List<UserDTO> listeCardVente = Comm.getCardsMarket();
 		System.out.println(listeCardVente);
 		return listeCardVente;
 		}
+	
 	
 	public ArrayList<CardDTO> getSellableMarketCards() {
 		

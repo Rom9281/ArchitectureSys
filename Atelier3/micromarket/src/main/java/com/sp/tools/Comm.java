@@ -1,6 +1,8 @@
 package com.sp.tools;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.web.client.RestTemplate;
 
@@ -10,27 +12,35 @@ import com.model.UserDTO;
 // C'est la classe des requêtes
 public class Comm {
 	
-	private static final String URL_CARDSERVICE = "http://localhost:8080/card";
+	private static final String URL_CARDSERVICE = "http://localhost:8083/card";
 	private static final String URL_USERSERVICE = "http://localhost:8081/user";
 	
-	// URL: http://localhost:8080/card/id
+	// URL: http://localhost:8083/card/id
 	public static CardDTO getCardDTO(Integer id) {
 		RestTemplate restTemplate = new RestTemplate();
 		CardDTO card = restTemplate.getForObject(URL_CARDSERVICE+"/"+id, CardDTO.class);
 		return card;
 	}
 	
-	// URL: http://localhost:8080/user/{id}
+	// URL: http://localhost:8081/user/{id}
 	public static UserDTO getUserDTO(Integer id) {
 		RestTemplate restTemplate = new RestTemplate();
 		UserDTO user = restTemplate.getForObject(URL_USERSERVICE+"/"+id, UserDTO.class);
 		return user;
 	}
 	
-	// URL: http://localhost:8080/cards
+	// URL: http://localhost:8083/cards
 	public static ArrayList<CardDTO> getUserCards(Integer id) {
 		RestTemplate restTemplate = new RestTemplate();
 		ArrayList<CardDTO> user = restTemplate.getForObject(URL_CARDSERVICE+"s/"+id, ArrayList.class);
 		return user;
 	}
+	
+	// URL: http://localhost:8083/card/market
+	public static List<UserDTO> getCardsMarket() {
+		RestTemplate restTemplate = new RestTemplate();
+		UserDTO[] listuserDTO = restTemplate.getForObject(URL_CARDSERVICE+"/market", UserDTO[].class);
+		List<UserDTO> listeCardVente = Arrays.asList(listuserDTO);
+		return listeCardVente;
+		}
 }

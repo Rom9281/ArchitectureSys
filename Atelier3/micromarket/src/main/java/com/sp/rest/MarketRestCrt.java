@@ -23,6 +23,7 @@ import com.sp.service.MarketService;
       MarketService mService;
       
       // GET page de choix entre le market de vente, d'achat ou pour les rooms
+      
       @GetMapping(value="/market")
       public List<UserDTO> requestMarket() {
     	List<UserDTO> uList = mService.requestMarketCard();
