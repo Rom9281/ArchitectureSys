@@ -13,6 +13,6 @@ public interface CardRepository extends CrudRepository<Card, Integer> {
 	public List<Card> findByName(String name);
 	public Optional<Card> findById(Integer id);
 	public List<Card> findByUserId(Integer id);
-	public Iterable<Card> findAll();
-	public List<Card> FindByToSellTrue();
+	public List<Card> findAll();
+	public List<Card> FindByIsToSellTrue();
 }
