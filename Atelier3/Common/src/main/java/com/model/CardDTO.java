@@ -1,6 +1,7 @@
 package com.model;
 
 public class CardDTO {
+	private Integer id;
 	private String name;
 	private String description;
 	private String family;
@@ -15,6 +16,7 @@ public class CardDTO {
 	private Boolean isToSell;
 
 	public CardDTO() {
+		this.setId(0);
 		this.name = "";
 		this.description = "";
 		this.family = "";
@@ -45,7 +47,15 @@ public class CardDTO {
 	}
 
 	// GETTER AND SETTER
-	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
