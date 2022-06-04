@@ -34,30 +34,30 @@ import com.sp.service.CardService;
       
       @RequestMapping(method=RequestMethod.POST,value="/card")
       public void addCard(@RequestBody CardDTO cardDTO) {
-    	  System.out.print(cardDTO);
+    	  System.out.print("Lancement de l'ajout dans la base de données de la carte: "+cardDTO);
           cService.addCard(cardDTO);
       }
       
       // Renvoie la carte avec l'id demandé
-      @RequestMapping(method=RequestMethod.GET,value="/card/{id}")
-      public CardDTO getCard(@PathVariable String id) {
-    	  CardDTO cardDTO = cService.getCard(Integer.valueOf(id));
-    	  System.out.println(cardDTO);
+      @RequestMapping(method=RequestMethod.GET,value="/card/{cardId}")
+      public CardDTO getCard(@PathVariable String cardId) {
+    	  System.out.println("Lancement de la méthode de récupération de la carte id="+cardId);
+    	  CardDTO cardDTO = cService.getCard(Integer.valueOf(cardId));
+    	  System.out.println("Carte récupéré :"+cardDTO);
     	  return cardDTO;
       }
 
       // Requête pour récupérer toutes les cartes d'un utilisateur
       @GetMapping(value = "/card/user/{userId}")
       public List<CardDTO> getUserCards(@PathVariable String userId) {
-    	  System.out.println("Récupération des cartes de l'utilisateur id=" + userId);
+    	  System.out.println("Lancement de la récupération des cartes de l'utilisateur id="+userId);
     	  return cService.getUserCards(Integer.valueOf(userId));
       }
       
       // Attribuer des cartes pour l'utilisateur qui vient d'être créé
       @RequestMapping(method=RequestMethod.GET,value="/generateCards/{userId}")
       public List<CardDTO> generateCards(@PathVariable String userId) {
-    	  System.out.println("Création de cartes pour l'utilisateur: id="+userId);
-    	  System.out.println(Integer.valueOf(userId));
+    	  System.out.println("Lancement de la création de cartes pour l'utilisateur: id="+userId);
     	  List<CardDTO> generatedCardsList = cService.createCards(Integer.valueOf(userId));
     	  return generatedCardsList;
       }
@@ -65,20 +65,21 @@ import com.sp.service.CardService;
       
       @GetMapping("/card/market")
       public List<CardDTO> getMarketCards() {
+    	  System.out.println("Lancement de l'obtention des cartes du market");
     	  List<CardDTO> marketList = cService.cardsOfMarket();
     	  return marketList;
       }
       
       @RequestMapping(method=RequestMethod.GET,value="/cards")
       public List<CardDTO> getCards() {
+    	  System.out.println("Lancement de la récupération de toutes les cartes");
           List<CardDTO> clist =  cService.getAllCards();
           return clist;
       }
       
       @RequestMapping(method=RequestMethod.PUT,value="/card/{cardId}")
       public CardDTO updateCard(@PathVariable String cardId, @RequestBody CardDTO cardDTO) {
-//    	  CardDTO cardDTO = cService.getCard(id);
-    	  CardDTO updatedCardDTO = cService.update(Integer.valueOf(cardId), cardDTO);
+    	  CardDTO updatedCardDTO = cService.update(cardDTO);
     	  return updatedCardDTO;
       }
       
