@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.model.CardDTO;
 import com.model.UserDTO;
 import com.sp.model.User;
 import com.sp.repository.UserRepository;
@@ -157,8 +158,8 @@ public class UserService {
 		// TODO : possiblement gerer le type de retour
 		
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		HttpEntity<Integer> request = new HttpEntity<>(id, headers);
-		rest_template.postForObject(url_generate_card+"/"+id.toString(), request, Integer.class);
+		//HttpEntity<Integer> request = new HttpEntity<>(id, headers);
+		rest_template.getForObject(url_generate_card+"/"+id.toString() , CardDTO[].class);
 		
 		
 	}

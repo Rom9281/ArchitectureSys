@@ -75,7 +75,7 @@ import com.sp.service.CardService;
           return clist;
       }
       
-      @RequestMapping(method=RequestMethod.PUT,value="/card/{id}")
+      @RequestMapping(method=RequestMethod.PUT,value="/card/{cardId}")
       public CardDTO updateCard(@PathVariable String cardId, @RequestBody CardDTO cardDTO) {
 //    	  CardDTO cardDTO = cService.getCard(id);
     	  CardDTO updatedCardDTO = cService.update(Integer.valueOf(cardId), cardDTO);
