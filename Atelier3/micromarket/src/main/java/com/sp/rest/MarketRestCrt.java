@@ -33,9 +33,9 @@ public class MarketRestCrt {
 	// GET pour avoir l'interface de vente des cartes de l'utilisateur connecté
 	// TODO : doit renvoyer la liste des cartes de l'utilisateur connecté
 	@GetMapping(value = "/market/sell/{userid}")
-	public ArrayList<CardDTO> sellMarket(@PathVariable String userid) {
+	public List<CardDTO> sellMarket(@PathVariable String userid) {
 		System.out.println("Lancement récupération cartes de l'utilisateur pour une éventuelle mise en vente");
-		ArrayList<CardDTO> listeCards = mService.getSellableMarketCards(userid);
+		List<CardDTO> listeCards = mService.getSellableMarketCards(userid);
 		return listeCards;
 	}
 
