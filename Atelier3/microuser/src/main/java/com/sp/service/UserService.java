@@ -105,7 +105,7 @@ public class UserService {
 		}
 	}
 
-	public UserDTO update(Integer userId, UserDTO userDTO) {
+	public UserDTO update(UserDTO userDTO) {
 		User user = userDTOToUser(userDTO);
 		User updatedUser = userRepository.save(user);
 		return userToUserDTO(updatedUser);
@@ -135,7 +135,8 @@ public class UserService {
 	 * @RETURN Integer Id
 	 * */
 	public void generateCards(Integer id) {
-		// TODO : possiblement gerer le type de retour
+		// TODO : possiblement gerer le type de retour, à mettre dans un fichier dédier pour les appels API
+		
 		
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<Integer> request = new HttpEntity<>(id, headers);
