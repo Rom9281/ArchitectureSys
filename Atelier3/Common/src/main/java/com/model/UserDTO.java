@@ -1,7 +1,7 @@
 package com.model;
 
 public class UserDTO {
-	
+
 	private Integer id;
 
 	private String nom;
@@ -73,5 +73,11 @@ public class UserDTO {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDTO [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", password="
+				+ password + ", email=" + email + ", money=" + money + "]";
 	}
 }

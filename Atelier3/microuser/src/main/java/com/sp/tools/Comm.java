@@ -15,6 +15,7 @@ public class Comm {
 	
 	// GET: http://localhost:8083/generateCards/{id}
 		public static void generateCards(Integer id) {
+			System.out.println("UserComm generateCards: Envoie requête pour génération de cartes");
 			// TODO : possiblement gerer le type de retour, à mettre dans un fichier dédier pour les appels API
 			//HttpEntity<Integer> request = new HttpEntity<>(id, headers);
 			restTemplate.getForObject(URL_GENERATECARD+"/"+id.toString() , CardDTO[].class);

@@ -30,11 +30,12 @@ public class UserService {
     
 	
 	/**
-	 * Permet de convertir une chqine de charactere json recut en objet User
+	 * Permet de convertir une chaine de charactere json recut en objet User
 	 * @PARAM String string : chaine de charactere json
 	 * @RETURN User : null si echec, un user sinon
 	 * */
 	public User json2User(String json) {
+		System.out.println("UserService json2User: Début de la convertion du json en User");
 		try 
 		{
 			return mapper.readValue(json, User.class);
@@ -54,7 +55,7 @@ public class UserService {
 	 * @RETURN que nada
 	 */
 	public void addUser(User u) {
-		System.out.println(u);
+		System.out.println("UserService addUser: Ajout dans la base de données du User:"+u);
 		/** Utilise le module de securite de spring pour crypter le mdp*/
 		u.setPassword(passwordEncoder.encode(u.getPassword())); // Hashage du mdp
 		
@@ -63,7 +64,6 @@ public class UserService {
 		
 		/** Demande a ce meme service de generer les cartes*/
 		this.generateCards(createdUser.getId());
-		
 	}
 	
 	public boolean addUser(String json) {
@@ -86,26 +86,22 @@ public class UserService {
 	 * Permet de savoir si l'utilisateur fait bien partie de la db
 	 * */
 	public boolean verifyUser(String json) {
-		/** */
+		System.out.println("UserService verifyUser: Début vérification existance du user dans la base de données");
 		boolean ret = false;
 		User u = this.json2User(json); // convertis l'objet json en objet User
 		
 		if(u != null) { // si la conversion n'est pas un echec
 			User same_login_u = this.getUserByLogin(u.getLogin()); // Recupere l'utilisateur avec un login meme que celui dont on demande la verification
-			
 			if(same_login_u != null) { // Si il a ete trouve
 				ret = passwordEncoder.matches(u.getPassword(), same_login_u.getPassword());// verifie si il y a le meme mdp
 			}
 		}
-		
 		return ret;
 	}
 
-	public User getUser(Integer id) 
-	{
-		
-		Optional<User> uOpt = userRepository.findById(id);
-		
+	public User getUser(Integer userId) {
+		System.out.println("UserService getUser: Début récupération du User id="+userId);
+		Optional<User> uOpt = userRepository.findById(userId);
 		if (uOpt.isPresent()) {
 			return uOpt.get();
 		} else {
@@ -114,6 +110,7 @@ public class UserService {
 	}
 	
 	public User getUserByLogin(String login) {
+		System.out.println("UserService getUserByLogin: Début récupération du User avec login="+login);
 		Optional<User> uOpt = userRepository.findByLogin(login);
 		if (uOpt.isPresent()) {
 			return uOpt.get();
@@ -123,11 +120,29 @@ public class UserService {
 	}
 
 	public UserDTO update(UserDTO userDTO) {
+		System.out.println("UserService update: Mise à jour du "+userDTO);
 		User user = userDTOToUser(userDTO);
 		User updatedUser = userRepository.save(user);
 		return userToUserDTO(updatedUser);
 	}
 
+
+	public Iterable<User> getAllUser() {
+		System.out.println("UserService getAllUser: Récupération de tous les User");
+		Iterable<User> uOpt = userRepository.findAll();
+		return uOpt;
+	}
+	
+	/**
+	 * Requete pour generer les cartes lors de la création d'un utilisateur
+	 * @PARAM User user
+	 * @RETURN Integer Id
+	 * */
+	public void generateCards(Integer id) {
+		System.out.println("UserService generateCards: Génération des cartes");
+		// TODO : possiblement gerer le type de retour, à mettre dans un fichier dédier pour les appels API	
+		Comm.generateCards(id);	
+	}
 	
 	private User userDTOToUser(UserDTO userDTO) {
 		User user = new User();
@@ -140,20 +155,4 @@ public class UserService {
 		BeanUtils.copyProperties(user, userDTO);
 		return userDTO;
 	}
-
-	public Iterable<User> getAllUser() {
-		Iterable<User> uOpt = userRepository.findAll();
-		return uOpt;
-	}
-	
-	/**
-	 * Requete pour generer les cartes lors de la création d'un utilisateur
-	 * @PARAM User user
-	 * @RETURN Integer Id
-	 * */
-	public void generateCards(Integer id) {
-		// TODO : possiblement gerer le type de retour, à mettre dans un fichier dédier pour les appels API	
-		Comm.generateCards(id);	
-	}
-
 }

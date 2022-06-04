@@ -121,7 +121,7 @@ public class CardService {
 	}
 
 	public CardDTO update(CardDTO cardDTO) {
-		System.out.println("CardService update: mise à jour de la carte id="+cardDTO.getId());
+		System.out.println("CardService update: Début mise à jour de la "+cardDTO);
 		// TODO: vérifier que le nouvel objet card aie bien le même id que la carteDTO
 		Card card = cardDTOToCard(cardDTO);
 		Card updatedCard = cRepository.save(card);

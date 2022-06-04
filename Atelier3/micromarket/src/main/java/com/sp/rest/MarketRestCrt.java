@@ -25,6 +25,7 @@ public class MarketRestCrt {
 	// GET pour obtenir l'affichage du market des cartes achetables
 	@RequestMapping(method = RequestMethod.GET, value = "/market/buy")
 	public List<CardDTO> diplayMarketBuy() {
+		System.out.println("Lancement récupération cartes en vente");
 		List<CardDTO> uList = mService.requestMarketCard();
 		return uList;
 	}
@@ -33,6 +34,7 @@ public class MarketRestCrt {
 	// TODO : doit renvoyer la liste des cartes de l'utilisateur connecté
 	@GetMapping(value = "/market/sell/{userid}")
 	public ArrayList<CardDTO> sellMarket(@PathVariable String userid) {
+		System.out.println("Lancement récupération cartes de l'utilisateur pour une éventuelle mise en vente");
 		ArrayList<CardDTO> listeCards = mService.getSellableMarketCards(userid);
 		return listeCards;
 	}
