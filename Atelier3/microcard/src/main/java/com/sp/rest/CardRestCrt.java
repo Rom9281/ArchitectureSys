@@ -6,6 +6,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -75,9 +76,10 @@ import com.sp.service.CardService;
       }
       
       @RequestMapping(method=RequestMethod.PUT,value="/card/{id}")
-      public CardDTO updateCard(@PathVariable Integer id) {
-    	  CardDTO cardDTO = cService.getCard(id);
+      public CardDTO updateCard(@PathVariable Integer id, @RequestBody CardDTO cardDTO) {
+//    	  CardDTO cardDTO = cService.getCard(id);
     	  CardDTO updatedCardDTO = cService.update(id, cardDTO);
     	  return updatedCardDTO;
       }
+      
   }

@@ -25,7 +25,7 @@ public class UserRestCrt {
 	UserService uService;
 	
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/createUser")
+	@RequestMapping(method = RequestMethod.POST, value = "/user/createUser")
 	public void addUser(@RequestBody User user) {
 		uService.addUser(user);
 	}
@@ -44,7 +44,7 @@ public class UserRestCrt {
 		return userDTO;
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/login")
+	@RequestMapping(method = RequestMethod.POST, value = "/user/login")
 	public Boolean login(@RequestBody String json){
 		return uService.verifyUser(json);
 	}

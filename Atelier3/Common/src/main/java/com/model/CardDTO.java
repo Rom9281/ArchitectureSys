@@ -1,7 +1,7 @@
 package com.model;
 
 public class CardDTO {
-	
+
 	private Integer id;
 	
 	private String name;
@@ -164,5 +164,12 @@ public class CardDTO {
 	public void setIsToSell(Boolean isToSell) {
 		this.isToSell = isToSell;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "CardDTO [id=" + id + ", name=" + name + ", description=" + description + ", family=" + family
+				+ ", affinity=" + affinity + ", imgUrl=" + imgUrl + ", defense=" + defense + ", energy=" + energy
+				+ ", hp=" + hp + ", attack=" + attack + ", price=" + price + ", userId=" + userId + ", isToSell="
+				+ isToSell + "]";
+	}
 }
