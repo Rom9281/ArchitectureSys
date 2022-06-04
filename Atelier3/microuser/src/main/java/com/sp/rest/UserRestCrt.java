@@ -56,4 +56,9 @@ public class UserRestCrt {
 		uService.update(Integer.valueOf(userId), userDTO);
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/getUserInfo/{login}")
+	public User getUserInfo(@PathVariable String login) {
+		return uService.getUserByLogin(login);
+	}
+	
 }
