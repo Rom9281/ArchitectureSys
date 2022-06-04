@@ -161,7 +161,6 @@ public class UserService {
 		HttpEntity<Integer> request = new HttpEntity<>(id, headers);
 		rest_template.postForObject(url_generate_card+"/"+id.toString(), request, Integer.class);
 		
-		
 	}
 
 }
