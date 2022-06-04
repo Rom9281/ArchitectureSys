@@ -16,6 +16,7 @@ import com.model.CardDTO;
 import com.model.UserDTO;
 import com.sp.model.User;
 import com.sp.repository.UserRepository;
+import com.sp.tools.Comm;
 
 @Service
 public class UserService {
@@ -24,11 +25,7 @@ public class UserService {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder; // Bibliotheque de securite
-	
-	RestTemplate rest_template = new RestTemplate();
-	HttpHeaders headers = new HttpHeaders();
-	String url_generate_card = "http://127.0.0.1:8083/generateCards";
-	
+
 	ObjectMapper mapper = new ObjectMapper();
     
 	
@@ -155,13 +152,8 @@ public class UserService {
 	 * @RETURN Integer Id
 	 * */
 	public void generateCards(Integer id) {
-		// TODO : possiblement gerer le type de retour, à mettre dans un fichier dédier pour les appels API
-		
-		
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		//HttpEntity<Integer> request = new HttpEntity<>(id, headers);
-		rest_template.getForObject(url_generate_card+"/"+id.toString() , CardDTO[].class);
-		
+		// TODO : possiblement gerer le type de retour, à mettre dans un fichier dédier pour les appels API	
+		Comm.generateCards(id);	
 	}
 
 }
