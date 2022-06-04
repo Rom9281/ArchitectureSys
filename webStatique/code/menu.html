@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="css/custom.css">
 
     </head>
+    
 
     <body>
         <div class="ui clearing segment">
@@ -20,9 +21,13 @@
                 <i class="user circle outline icon"></i>
                 <div class="content">
                     <span id="userNameId">Jdoe</span>
-                    <div class="sub header"><span>5000</span>$</div>
+                    <div class="sub header"><span id="money">5000</span>$</div>
                 </div>
             </h3>
+            
+            <script>
+                document.getElementById("userNameId").value = sessionStorage.getItem("login");
+            </script>
 
             <h3 class="ui left floated header">
                 <div class="content">
@@ -59,10 +64,7 @@
                 </form>
             </div>
         </div>
-                   
-
-
-
+        
         <script src="../lib/jquery-3.3.1.min.js"></script>
         <script src="../lib/Semantic-UI-CSS-master/semantic.js"></script>
         

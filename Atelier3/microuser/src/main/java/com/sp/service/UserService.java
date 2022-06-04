@@ -26,7 +26,7 @@ public class UserService {
 	
 	RestTemplate rest_template = new RestTemplate();
 	HttpHeaders headers = new HttpHeaders();
-	String url_generate_card = "http://127.0.0.3:8082/generateCards";
+	String url_generate_card = "http://127.0.0.1:8083/generateCards";
 	
 	ObjectMapper mapper = new ObjectMapper();
     
@@ -68,6 +68,25 @@ public class UserService {
 		
 	}
 	
+	public boolean addUser(String json) {
+		Boolean ret = false;
+		User u = this.json2User(json);
+		System.out.println(u);
+		System.out.println(userRepository.findByLogin(u.getLogin()));
+		
+		
+		/* Cherche a savoir si l'utilisateur existe deja dans la dB*/
+		if(!userRepository.existsByLogin(u.getLogin())) {
+			this.addUser(u);
+			ret = true;
+		}
+		return ret;
+		
+	}
+	
+	/**
+	 * Permet de savoir si l'utilisateur fait bien partie de la db
+	 * */
 	public boolean verifyUser(String json) {
 		/** */
 		boolean ret = false;
