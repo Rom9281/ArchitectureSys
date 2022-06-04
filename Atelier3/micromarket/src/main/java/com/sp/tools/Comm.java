@@ -71,9 +71,9 @@ public class Comm {
 	 * 		- mettre à jour l'argent d'un User à la suite d'une vente
 	 * @param userDTO
 	 */
-	// PUT: http://localhost:8081/user/{id}
+	// PUT: http://localhost:8081/user/update
 	public static void putUpdateUser(UserDTO userDTO) {
-		System.out.println("On met à jour la carte "+userDTO);
+		System.out.println("On met à jour le user "+userDTO);
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);

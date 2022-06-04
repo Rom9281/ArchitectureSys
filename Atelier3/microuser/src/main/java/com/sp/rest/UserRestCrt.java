@@ -51,9 +51,14 @@ public class UserRestCrt {
 		return uService.verifyUser(json);
 	}
 	
-	@PutMapping("/user/{userId}")
-	public void updateUser(@PathVariable String userId, @RequestBody UserDTO userDTO) {
-		uService.update(Integer.valueOf(userId), userDTO);
+	@PutMapping("/user/update")
+	public void updateUser(@RequestBody UserDTO userDTO) {
+		uService.update(userDTO);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/getUserInfo/{login}")
+	public User getUserInfo(@PathVariable String login) {
+		return uService.getUserByLogin(login);
 	}
 	
 }
