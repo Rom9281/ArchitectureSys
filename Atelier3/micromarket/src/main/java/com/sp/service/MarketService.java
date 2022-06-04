@@ -30,9 +30,8 @@ public class MarketService {
 		}
 	
 	
-	public ArrayList<CardDTO> getSellableMarketCards(String id) {
-		Integer userid = Integer.valueOf(id);
-		ArrayList<CardDTO> listeCardVente = (ArrayList<CardDTO>) Comm.getUserCards(userid);
+	public List<CardDTO> getSellableMarketCards(String userid) {
+		List<CardDTO> listeCardVente = Comm.getUserCards(userid);
 		return listeCardVente;
 	}
 	

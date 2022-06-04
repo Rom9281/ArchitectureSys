@@ -34,9 +34,9 @@ public class Comm {
 	}
 
 	// GET: http://localhost:8083/card/user/{id}
-	public static List<CardDTO> getUserCards(Integer id) {
-		CardDTO[] userCards = restTemplate.getForObject(URL_CARDSERVICE + "/" + id, CardDTO[].class);
-		List<CardDTO> listeCardVente = Arrays.asList(userCards);
+	public static List<CardDTO> getUserCards(String id) {
+		CardDTO[] userCards = restTemplate.getForObject(URL_CARDSERVICE + "/user/" + id, CardDTO[].class);
+		List<CardDTO> listeCardVente =  Arrays.asList(userCards);
 		return listeCardVente;
 	}
 
