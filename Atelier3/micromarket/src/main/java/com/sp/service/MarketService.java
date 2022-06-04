@@ -23,7 +23,7 @@ public class MarketService {
 
 	
 	public List<CardDTO> requestMarketCard() {
-		
+		System.out.println("MarketService requestMarketCard: Récupération des cartes en vente");
 		List<CardDTO> listeCardVente = Comm.getCardsMarket();
 		System.out.println(listeCardVente);
 		return listeCardVente;
@@ -31,15 +31,18 @@ public class MarketService {
 	
 	
 	public List<CardDTO> getSellableMarketCards(String userid) {
+		System.out.println("MarketService getSellableMarketCards: Récupération des cartes vendables par le User");
 		List<CardDTO> listeCardVente = Comm.getUserCards(userid);
 		return listeCardVente;
 	}
 	
 	
 	public void buyCard(Integer buyerId, Integer cardId) {
+		System.out.println("MarketService buyCard: Achat d'une carte");
 		CardDTO cardDTO = Comm.getCardDTO(cardId);
 		
-		if (cardDTO.getIsToSell()) {  //TODO verif if card in market
+		// vérifie si la carte est en vente dans le market
+		if (cardDTO.getIsToSell()) {
 			UserDTO owner = Comm.getUserDTO(cardDTO.getUserId());
 			UserDTO buyer = Comm.getUserDTO(buyerId);
 			
@@ -51,8 +54,6 @@ public class MarketService {
 				Comm.putUpdateCard(cardDTO);// save la carte avec l'id de son nouveau propriétaire
 				Comm.putUpdateUser(owner);// save l'ancien proprio avec la carte enlevé de ses cartes, la money en plus
 			}
-			
 		}
-		
 	}
 }

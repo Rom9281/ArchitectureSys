@@ -34,7 +34,7 @@ public class MarketRestCrt {
 	// TODO : doit renvoyer la liste des cartes de l'utilisateur connecté
 	@GetMapping(value = "/market/sell/{userid}")
 	public List<CardDTO> sellMarket(@PathVariable String userid) {
-		System.out.println("Lancement récupération cartes de l'utilisateur pour une éventuelle mise en vente");
+		System.out.println("Lancement récupération cartes de l'utilisateur pour mise en vente");
 		List<CardDTO> listeCards = mService.getSellableMarketCards(userid);
 		return listeCards;
 	}
@@ -42,7 +42,8 @@ public class MarketRestCrt {
 	//
 	@RequestMapping(method = RequestMethod.GET, value = "/market/buy/{userId}/{cardId}")
 	public void buyCard(@PathVariable String userId, @PathVariable String cardId) {
-		// possiblement trouver un moyen de récupéré les deux variables autrement
+		System.out.println("Lancement achat d'une carte");
+		// TODO: possiblement trouver un moyen de récupéré les deux variables autrement
 		mService.buyCard(Integer.valueOf(userId), Integer.valueOf(cardId));
 	}
 

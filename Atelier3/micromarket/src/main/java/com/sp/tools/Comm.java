@@ -22,27 +22,30 @@ public class Comm {
 	private static HttpHeaders headers = new HttpHeaders();
 	
 	// GET: http://localhost:8083/card/{id}
-	public static CardDTO getCardDTO(Integer id) {	
-		CardDTO card = restTemplate.getForObject(URL_CARDSERVICE + "/" + id, CardDTO.class);
+	public static CardDTO getCardDTO(Integer cardId) {
+		System.out.println("MarketComm getCardDTO: Requête pour obtenir la Card id="+cardId);
+		CardDTO card = restTemplate.getForObject(URL_CARDSERVICE + "/" + cardId, CardDTO.class);
 		return card;
 	}
 
 	// GET: http://localhost:8081/user/{id}
-	public static UserDTO getUserDTO(Integer id) {
-		UserDTO user = restTemplate.getForObject(URL_USERSERVICE + "/" + id, UserDTO.class);
+	public static UserDTO getUserDTO(Integer userId) {
+		System.out.println("MarketComm getUserDTO: Requête pour obtenir le User id="+userId);
+		UserDTO user = restTemplate.getForObject(URL_USERSERVICE + "/" + userId, UserDTO.class);
 		return user;
 	}
 
 	// GET: http://localhost:8083/card/user/{id}
-	public static List<CardDTO> getUserCards(String id) {
-		CardDTO[] userCards = restTemplate.getForObject(URL_CARDSERVICE + "/user/" + id, CardDTO[].class);
+	public static List<CardDTO> getUserCards(String userId) {
+		System.out.println("MarketComm getUserCards: Requête pour obtenir les cartes du User id="+userId);
+		CardDTO[] userCards = restTemplate.getForObject(URL_CARDSERVICE + "/user/" + userId, CardDTO[].class);
 		List<CardDTO> listeCardVente =  Arrays.asList(userCards);
 		return listeCardVente;
 	}
 
 	// GET: http://localhost:8083/card/market
 	public static List<CardDTO> getCardsMarket() {
-		System.out.println("Demande des cartes en vente actuellement");
+		System.out.println("MarketComm getCardsMarket: Requête pour obtenir les cartes du market");
 		CardDTO[] listcardDTO = restTemplate.getForObject(URL_CARDSERVICE + "/market", CardDTO[].class);
 		List<CardDTO> listeCardVente = Arrays.asList(listcardDTO);
 		return listeCardVente;
@@ -57,7 +60,7 @@ public class Comm {
 	 */
 	// PUT: http://localhost:8083/card/{id}
 	public static void putUpdateCard(CardDTO cardDTO) {
-		System.out.println("On met à jour la carte "+cardDTO);
+		System.out.println("MarketComm putUpdateCard: Requête pour mettre à jour la "+cardDTO);
 		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
 		HttpEntity<CardDTO> requestBody = new HttpEntity<>(cardDTO, headers);
 		restTemplate.put(URL_CARDSERVICE + "/"+cardDTO.getId(), requestBody, Boolean.class);
@@ -71,7 +74,7 @@ public class Comm {
 	 */
 	// PUT: http://localhost:8081/user/update
 	public static void putUpdateUser(UserDTO userDTO) {
-		System.out.println("On met à jour le user "+userDTO);
+		System.out.println("MarketComm putUpdateUser: Requête pour mettre à jour le "+userDTO);
 		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
 		HttpEntity<UserDTO> requestBody = new HttpEntity<>(userDTO, headers);
 		restTemplate.put(URL_USERSERVICE + "/"+userDTO.getId(), requestBody, Boolean.class);
