@@ -1,6 +1,8 @@
 package com.model;
 
 public class UserDTO {
+	
+	private Integer id;
 
 	private String nom;
 	private String prenom;
@@ -63,5 +65,13 @@ public class UserDTO {
 	}
 	public void setMoney(Integer money) {
 		this.money = money;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }

@@ -1,19 +1,26 @@
 package com.model;
 
 public class CardDTO {
+
+	private Integer id;
+	
 	private String name;
 	private String description;
 	private String family;
 	private String affinity;
 	private String imgUrl;
+	
 	private Integer defense;
 	private Integer energy;
 	private Integer hp;
 	private Integer attack;
 	private Integer price;
 	private Integer userId;
-
+	
+	private Boolean isToSell;
+	
 	public CardDTO() {
+		this.setId(0);
 		this.name = "";
 		this.description = "";
 		this.family = "";
@@ -25,9 +32,24 @@ public class CardDTO {
 		this.attack = 0;
 		this.userId = 0;
 		this.price = 0;
+		this.setIsToSell(false);
 	}
 	
-	public CardDTO(String name,String description,String family, String affinity, String imgUrl, Integer defense , Integer energy, Integer hp, Integer attack, Integer userId, Integer price) {
+	/**
+	 * 
+	 * @param name
+	 * @param description
+	 * @param family
+	 * @param affinity
+	 * @param imgUrl
+	 * @param defense
+	 * @param energy
+	 * @param hp
+	 * @param attack
+	 * @param userId
+	 * @param isToSell
+	 */
+	public CardDTO(String name,String description,String family, String affinity, String imgUrl, Integer defense , Integer energy, Integer hp, Integer attack, Integer userId, Boolean isToSell) {
 		this.name = name;
 		this.description = description;
 		this.family = family;
@@ -38,11 +60,36 @@ public class CardDTO {
 		this.hp = hp;
 		this.attack = attack;
 		this.userId = userId;
-		this.price = price; 
+		this.price = 100;
+		this.isToSell = isToSell;
+	}
+	
+	public CardDTO(Integer id, String name,String description,String family, String affinity, String imgUrl, Integer defense , Integer energy, Integer hp, Integer attack, Integer userId, Boolean isToSell) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.family = family;
+		this.affinity = affinity;
+		this.imgUrl=imgUrl;
+		this.defense = defense;
+		this.energy = energy;
+		this.hp = hp;
+		this.attack = attack;
+		this.userId = userId;
+		this.price = 100;
+		this.isToSell = isToSell;
 	}
 
 	// GETTER AND SETTER
-	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -108,5 +155,21 @@ public class CardDTO {
 	}
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+
+	public Boolean getIsToSell() {
+		return isToSell;
+	}
+
+	public void setIsToSell(Boolean isToSell) {
+		this.isToSell = isToSell;
+	}
+	
+	@Override
+	public String toString() {
+		return "CardDTO [id=" + id + ", name=" + name + ", description=" + description + ", family=" + family
+				+ ", affinity=" + affinity + ", imgUrl=" + imgUrl + ", defense=" + defense + ", energy=" + energy
+				+ ", hp=" + hp + ", attack=" + attack + ", price=" + price + ", userId=" + userId + ", isToSell="
+				+ isToSell + "]";
 	}
 }

@@ -41,6 +41,7 @@ public class Card {
 		this.hp = 0;
 		this.attack = 0;
 		this.price = 0;
+		this.isToSell = false;
 		//TODO--------------------------------------------------------------------------------------------------------
 	      	//Reception requete http du market + envoie http de la liste des cards id = 0
 			// pour qu'une vente soit conclue, il faut aussi l'id du vendeur pour qu'il recoive les tunes
@@ -50,7 +51,7 @@ public class Card {
 		//--------------------------------------------------------------------------------------------------------    
 	}
 
-	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack, Integer userId) {
+	public Card(String name,String description,String family, String affinity, String imgUrl, Integer defense, Integer energy, Integer hp, Integer attack, Integer userId, Boolean isToSell) {
 		this.name = name;
 		this.description = description;
 		this.family = family;
@@ -61,6 +62,7 @@ public class Card {
 		this.hp = hp;
 		this.attack = attack;
 		this.userId = userId;
+		this.isToSell = false;
 	}
 	
 	// GETTER AND SETTER
@@ -168,5 +170,14 @@ public class Card {
 				+ ", family=" + family + ", affinity=" + affinity + ", imgUrl=" + imgUrl + ", defense=" 
 				+ defense + ", energy=" + energy + ", hp=" + hp + ", attack=" + attack + "]";
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 }
 
