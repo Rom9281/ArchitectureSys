@@ -48,17 +48,17 @@ import com.sp.service.CardService;
 
       // Requête pour récupérer toutes les cartes d'un utilisateur
       @GetMapping(value = "/card/user/{userId}")
-      public List<CardDTO> getUserCards(@PathVariable Integer userId) {
+      public List<CardDTO> getUserCards(@PathVariable String userId) {
     	  System.out.println("Récupération des cartes de l'utilisateur id=" + userId);
-    	  return cService.getUserCards(userId);
+    	  return cService.getUserCards(Integer.valueOf(userId));
       }
       
       // Attribuer des cartes pour l'utilisateur qui vient d'être créé
       @RequestMapping(method=RequestMethod.GET,value="/generateCards/{userId}")
-      public List<CardDTO> generateCards(@PathVariable Integer userId) {
+      public List<CardDTO> generateCards(@PathVariable String userId) {
     	  System.out.println("Création de cartes pour l'utilisateur: id="+userId);
-    	  System.out.println(userId);
-    	  List<CardDTO> generatedCardsList = cService.createCards(userId);
+    	  System.out.println(Integer.valueOf(userId));
+    	  List<CardDTO> generatedCardsList = cService.createCards(Integer.valueOf(userId));
     	  return generatedCardsList;
       }
       
@@ -76,9 +76,9 @@ import com.sp.service.CardService;
       }
       
       @RequestMapping(method=RequestMethod.PUT,value="/card/{id}")
-      public CardDTO updateCard(@PathVariable Integer id, @RequestBody CardDTO cardDTO) {
+      public CardDTO updateCard(@PathVariable String cardId, @RequestBody CardDTO cardDTO) {
 //    	  CardDTO cardDTO = cService.getCard(id);
-    	  CardDTO updatedCardDTO = cService.update(id, cardDTO);
+    	  CardDTO updatedCardDTO = cService.update(Integer.valueOf(cardId), cardDTO);
     	  return updatedCardDTO;
       }
       

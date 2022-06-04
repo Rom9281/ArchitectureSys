@@ -49,7 +49,7 @@ public class Comm {
 	}
 	
 	/**
-	 * Fonction pour changer une carte:
+	 * Fonction pour changer une carte dans son repository:
 	 * Utile pour :
 	 * 		- les actions de vente de carte par un utilisateur
 	 * 		- l'achat d'une carte par un joueur depuis le market
@@ -65,4 +65,19 @@ public class Comm {
 		restTemplate.put(URL_CARDSERVICE + "/"+cardDTO.getId(), requestBody, Boolean.class);
 	}
 	
+	/**
+	 * Fonction pour changer un User dans son repository:
+	 * Utile pour :
+	 * 		- mettre à jour l'argent d'un User à la suite d'une vente
+	 * @param userDTO
+	 */
+	// PUT: http://localhost:8081/user/{id}
+	public static void putUpdateUser(UserDTO userDTO) {
+		System.out.println("On met à jour la carte "+userDTO);
+		RestTemplate restTemplate = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
+		HttpEntity<UserDTO> requestBody = new HttpEntity<>(userDTO, headers);
+		restTemplate.put(URL_USERSERVICE + "/"+userDTO.getId(), requestBody, Boolean.class);
+	}
 }

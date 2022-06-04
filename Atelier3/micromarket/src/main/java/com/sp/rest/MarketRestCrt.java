@@ -16,48 +16,32 @@ import com.model.CardFormDTO;
 import com.model.UserDTO;
 import com.sp.service.MarketService;
 
-  @RestController
-  public class MarketRestCrt {
-	  
-      @Autowired
-      MarketService mService;
-      
-      // GET page de choix entre le market de vente, d'achat ou pour les rooms
-      
-      @GetMapping(value="/market")
-      public List<CardDTO> requestMarket() {
-    	List<CardDTO> uList = mService.requestMarketCard();
-    	return uList;
-      }
-      
-      // GET pour obtenir l'affichage du market
-      @RequestMapping(method=RequestMethod.GET,value="/market/buy")
-      public void diplayMarket() {
-    	  ;
-	  }
-      
-      // GET pour avoir l'interface de vente des cartes de l'utilisateur connecté
-      // TODO : doit renvoyer la liste des cartes de l'utilisateur connecté
-      @GetMapping(value = "/market/sell")
-      public ArrayList<CardDTO> sellMarket(@RequestBody Integer userId) {
-    	  ArrayList<CardDTO> listeCards = mService.getSellableMarketCards();
-    	  return listeCards;
-      }
-      
-      // 
-      @RequestMapping(method=RequestMethod.GET,value="/market/buy/{userId}/{cardId}")
-      public void buyCard(@PathVariable Integer userId,@PathVariable Integer cardId) {
-    	  // possiblement trouver un moyen de récupéré les deux variables autrement
-    	  mService.buyCard(userId, cardId);
-      }
-      
-    //----TODO----------------------------------------------------------------------------------------------------
-      
-      // url:/market/sell, affiche les cartes du joueur
-      
-      // bouton acheter sur une carte --> quand on appuie dessus--> GET infos utilisateur(id,argent) 
-      //-->POST obj card "/user/acheter/id_card" 
-      // 
-    //--------------------------------------------------------------------------------------------------------    
-   
-  }
+@RestController
+public class MarketRestCrt {
+
+	@Autowired
+	MarketService mService;
+
+	// GET pour obtenir l'affichage du market des cartes achetables
+	@RequestMapping(method = RequestMethod.GET, value = "/market/buy")
+	public List<CardDTO> diplayMarketBuy() {
+		List<CardDTO> uList = mService.requestMarketCard();
+		return uList;
+	}
+
+	// GET pour avoir l'interface de vente des cartes de l'utilisateur connecté
+	// TODO : doit renvoyer la liste des cartes de l'utilisateur connecté
+	@GetMapping(value = "/market/sell")
+	public ArrayList<CardDTO> sellMarket() {
+		ArrayList<CardDTO> listeCards = mService.getSellableMarketCards();
+		return listeCards;
+	}
+
+	//
+	@RequestMapping(method = RequestMethod.GET, value = "/market/buy/{userId}/{cardId}")
+	public void buyCard(@PathVariable String userId, @PathVariable String cardId) {
+		// possiblement trouver un moyen de récupéré les deux variables autrement
+		mService.buyCard(Integer.valueOf(userId), Integer.valueOf(cardId));
+	}
+
+}

@@ -3,6 +3,7 @@ package com.sp.service;
 import java.io.IOException;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -11,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.model.UserDTO;
 import com.sp.model.User;
 import com.sp.repository.UserRepository;
 
@@ -82,7 +84,7 @@ public class UserService {
 		return ret;
 	}
 
-	public User getUser(int id) 
+	public User getUser(Integer id) 
 	{
 		
 		Optional<User> uOpt = userRepository.findById(id);
@@ -102,8 +104,26 @@ public class UserService {
 			return null;
 		}
 	}
+
+	public UserDTO update(Integer userId, UserDTO userDTO) {
+		User user = userDTOToUser(userDTO);
+		User updatedUser = userRepository.save(user);
+		return userToUserDTO(updatedUser);
+	}
+
 	
+	private User userDTOToUser(UserDTO userDTO) {
+		User user = new User();
+		BeanUtils.copyProperties(userDTO, user);
+		return user;
+	}
 	
+	private UserDTO userToUserDTO(User user) {
+		UserDTO userDTO = new UserDTO();
+		BeanUtils.copyProperties(user, userDTO);
+		return userDTO;
+	}
+
 	public Iterable<User> getAllUser() {
 		Iterable<User> uOpt = userRepository.findAll();
 		return uOpt;
