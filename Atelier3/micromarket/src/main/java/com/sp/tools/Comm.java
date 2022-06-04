@@ -17,32 +17,32 @@ public class Comm {
 
 	private static final String URL_CARDSERVICE = "http://localhost:8083/card";
 	private static final String URL_USERSERVICE = "http://localhost:8081/user";
-
+	
+	private static RestTemplate restTemplate = new RestTemplate();
+	private static HttpHeaders headers = new HttpHeaders();
+	
 	// GET: http://localhost:8083/card/{id}
-	public static CardDTO getCardDTO(Integer id) {
-		RestTemplate restTemplate = new RestTemplate();
+	public static CardDTO getCardDTO(Integer id) {	
 		CardDTO card = restTemplate.getForObject(URL_CARDSERVICE + "/" + id, CardDTO.class);
 		return card;
 	}
 
 	// GET: http://localhost:8081/user/{id}
 	public static UserDTO getUserDTO(Integer id) {
-		RestTemplate restTemplate = new RestTemplate();
 		UserDTO user = restTemplate.getForObject(URL_USERSERVICE + "/" + id, UserDTO.class);
 		return user;
 	}
 
 	// GET: http://localhost:8083/card/user/{id}
-	public static ArrayList<CardDTO> getUserCards(Integer id) {
-		RestTemplate restTemplate = new RestTemplate();
-		ArrayList<CardDTO> user = restTemplate.getForObject(URL_CARDSERVICE + "/" + id, ArrayList.class);
-		return user;
+	public static List<CardDTO> getUserCards(Integer id) {
+		CardDTO[] userCards = restTemplate.getForObject(URL_CARDSERVICE + "/" + id, CardDTO[].class);
+		List<CardDTO> listeCardVente = Arrays.asList(userCards);
+		return listeCardVente;
 	}
 
 	// GET: http://localhost:8083/card/market
 	public static List<CardDTO> getCardsMarket() {
 		System.out.println("Demande des cartes en vente actuellement");
-		RestTemplate restTemplate = new RestTemplate();
 		CardDTO[] listcardDTO = restTemplate.getForObject(URL_CARDSERVICE + "/market", CardDTO[].class);
 		List<CardDTO> listeCardVente = Arrays.asList(listcardDTO);
 		return listeCardVente;
@@ -58,8 +58,6 @@ public class Comm {
 	// PUT: http://localhost:8083/card/{id}
 	public static void putUpdateCard(CardDTO cardDTO) {
 		System.out.println("On met à jour la carte "+cardDTO);
-		RestTemplate restTemplate = new RestTemplate();
-		HttpHeaders headers = new HttpHeaders();
 		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
 		HttpEntity<CardDTO> requestBody = new HttpEntity<>(cardDTO, headers);
 		restTemplate.put(URL_CARDSERVICE + "/"+cardDTO.getId(), requestBody, Boolean.class);
@@ -74,8 +72,6 @@ public class Comm {
 	// PUT: http://localhost:8081/user/update
 	public static void putUpdateUser(UserDTO userDTO) {
 		System.out.println("On met à jour le user "+userDTO);
-		RestTemplate restTemplate = new RestTemplate();
-		HttpHeaders headers = new HttpHeaders();
 		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
 		HttpEntity<UserDTO> requestBody = new HttpEntity<>(userDTO, headers);
 		restTemplate.put(URL_USERSERVICE + "/"+userDTO.getId(), requestBody, Boolean.class);
