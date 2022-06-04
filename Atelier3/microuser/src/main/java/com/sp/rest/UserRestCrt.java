@@ -26,8 +26,8 @@ public class UserRestCrt {
 	
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/createUser")
-	public void addUser(@RequestBody User user) {
-		uService.addUser(user);
+	public boolean addUser(@RequestBody String json) {
+		return uService.addUser(json);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/user")

@@ -20,8 +20,14 @@
             <div class="column"></div>
             <div class="column"></div>
             <div class="column">
+                <div id="validation">
+                </div>
                 <form class="ui form" action="./addData" method="GET" id="addUserForm">
                     <h3 class="ui dividing header">Add User</h3>
+                    <div class="field">
+                        <label>Login</label>
+                        <input type="Login" name="Login" placeholder="Login" id="Login">
+                    </div>
                     <div class="field">
                         <label>Name</label>
                         <input type="text" name="Name" placeholder="Name" id="Name">
@@ -31,6 +37,10 @@
                         <input type="text" name="Surname" placeholder="Surname"id="Surname">
                     </div>
                     <div class="field">
+                        <label>Email</label>
+                        <input type="Email" name="Email" placeholder="Email" id="Email">
+                    </div>
+                    <div class="field">
                         <label>Password</label>
                         <input type="password" name="Password" placeholder="Password" id="Password">
                     </div>
@@ -38,6 +48,8 @@
                         <label>Re-Password</label>
                         <input type="password" name="Re-Password" placeholder="Re-Password" id="Re-Password">
                     </div>
+
+                    
                     <button class="ui button" type="button">Cancel</button>
                     <button class="ui button" type="button" style="float: right;" onclick="SendUser()">+ OK</button>
                 </form>

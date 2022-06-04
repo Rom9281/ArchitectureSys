@@ -1,7 +1,7 @@
 function Connect(){
     console.log("OK");
 
-    const target_url = "http://127.0.0.2:8082/login"
+    const target_url = "http://127.0.0.1:8082/login"
     // check if user/pw pair exists and opens main menu page if so 
 
     const form = document.getElementById('connectionForm')
@@ -43,15 +43,12 @@ function Connect(){
         console.log(response.body)
         console.log(typeof(response))
         if (response == "true"){
-            window.location.replace("../menu.html");
+            sessionStorage.setItem('login', User.login);
+            window.location.replace("menu.html");
         } else{
-            document.getElementById("content").innerHTML = "Indentifiants mauvais";
+            document.getElementById("validation").innerHTML = "Indentifiants mauvais";
             console.log("/!\\ surname or pw incorrect")
         }
-    }
-
-    function callback(response){
-        document.getElementById("validation").innerHTML = response.value;
     }
 
     function err_callback(error){

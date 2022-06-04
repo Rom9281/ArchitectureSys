@@ -12,4 +12,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 	public Optional<User> findById(Integer id);
 	public Optional<User> findByLogin(String login);
 	public Iterable<User> findAll();
+	public Boolean existsByLogin(String login);
 }

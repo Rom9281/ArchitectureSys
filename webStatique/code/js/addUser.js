@@ -1,16 +1,19 @@
 function SendUser(){
     // create a json from form
+    const target_url = "http://127.0.0.1:8082/createUser"
 
     const form = document.getElementById('addUserForm')
 
     var User = new Object();
     User.name = document.getElementById("Name").value;
-    User.surname = document.getElementById("Surname").value;
+    User.first_name = document.getElementById("Surname").value;
     User.password = document.getElementById("Password").value;
-    User.repassword = document.getElementById("Re-Password").value;
+    User.email = document.getElementById("Email").value;
+    User.login = document.getElementById("Login").value;
+    User.imgUrl="";
     
     //Check if the two passwords are the same
-    if ((User.password.normalize() === User.repassword.normalize())
+    if ((User.password.normalize() === document.getElementById("Re-Password").value.normalize())
         && !(User.password === "")){
         console.log("mdp et re-mdp semblables");
     } else{
@@ -33,13 +36,23 @@ function SendUser(){
     };
 
     // TODO change the URL to the User DB
-    fetch('', requestOptions)
-        .then(response => response.json())
-            .then (response => callback(response))
+    fetch(target_url, requestOptions)
+        .then(response => response.text())
+            //.then(response=> response_processing(response))
+            .then (response => response_processing(response))
             .catch(error => err_callback(error));
 
-    function callback(response){
-        document.getElementById("content").innerHTML = response.value;
+
+    function response_processing(response){
+        console.log(response.body)
+        console.log(typeof(response))
+        if (response == "true"){
+            sessionStorage.setItem('login', User.login);
+            window.location.replace("menu.html");
+        } else{
+            document.getElementById("validation").innerHTML = "Le nom d'utilisateur existe deja.";
+            console.log("/!\\ surname or pw incorrect")
+        }
     }
 
     function err_callback(error){
