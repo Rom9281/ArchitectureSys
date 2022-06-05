@@ -1,7 +1,8 @@
 function SendUser(){
-    // create a json from form
+
     const target_url = "http://127.0.0.1:8082/createUser"
 
+    // create a json from form
     const form = document.getElementById('addUserForm')
 
     var User = new Object();
