@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.model.CardDTO;
-import com.model.CardFormDTO;
 import com.model.UserDTO;
 import com.sp.service.MarketService;
 
@@ -31,7 +30,6 @@ public class MarketRestCrt {
 	}
 
 	// GET pour avoir l'interface de vente des cartes de l'utilisateur connecté
-	// TODO : doit renvoyer la liste des cartes de l'utilisateur connecté
 	@GetMapping(value = "/market/sell/{userid}")
 	public List<CardDTO> sellMarket(@PathVariable String userid) {
 		System.out.println("Lancement récupération cartes de l'utilisateur pour mise en vente");
