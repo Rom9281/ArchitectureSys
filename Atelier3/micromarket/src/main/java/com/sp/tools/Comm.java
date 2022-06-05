@@ -21,14 +21,14 @@ public class Comm {
 	private static RestTemplate restTemplate = new RestTemplate();
 	private static HttpHeaders headers = new HttpHeaders();
 	
-	// GET: http://localhost:8083/card/{id}
+	// GET: http://localhost:8083/card/{cardId}
 	public static CardDTO getCardDTO(Integer cardId) {
 		System.out.println("MarketComm getCardDTO: Requête pour obtenir la Card id="+cardId);
 		CardDTO card = restTemplate.getForObject(URL_CARDSERVICE + "/" + cardId, CardDTO.class);
 		return card;
 	}
 
-	// GET: http://localhost:8081/user/{id}
+	// GET: http://localhost:8081/user/{userId}
 	public static UserDTO getUserDTO(Integer userId) {
 		System.out.println("MarketComm getUserDTO: Requête pour obtenir le User id="+userId);
 		UserDTO user = restTemplate.getForObject(URL_USERSERVICE + "/" + userId, UserDTO.class);

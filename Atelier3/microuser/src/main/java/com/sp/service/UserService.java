@@ -45,7 +45,6 @@ public class UserService {
 			System.out.println(e);
 			return null;
 		}
-		
 	}
 	
 	/**
@@ -54,7 +53,7 @@ public class UserService {
 	 * @PARAM User u : utilisateur que l'on veut sauvegarder 
 	 * @RETURN que nada
 	 */
-	public void addUser(User u) {
+	public UserDTO addUser(User u) {
 		System.out.println("UserService addUser: Ajout dans la base de données du User:"+u);
 		/** Utilise le module de securite de spring pour crypter le mdp*/
 		u.setPassword(passwordEncoder.encode(u.getPassword())); // Hashage du mdp
@@ -64,18 +63,17 @@ public class UserService {
 		
 		/** Demande a ce meme service de generer les cartes*/
 		this.generateCards(createdUser.getId());
+		return this.userToUserDTO(createdUser);
 	}
 	
 	public boolean addUser(String json) {
 		Boolean ret = false;
-		User u = this.json2User(json);
-		System.out.println(u);
-		System.out.println(userRepository.findByLogin(u.getLogin()));
-		
+		User u = this.json2User(json);		
 		
 		/* Cherche a savoir si l'utilisateur existe deja dans la dB*/
 		if(!userRepository.existsByLogin(u.getLogin())) {
-			this.addUser(u);
+			UserDTO createdUser = this.addUser(u);
+			System.out.println("UserService addUser: Sauvegarde de "+createdUser);
 			ret = true;
 		}
 		return ret;

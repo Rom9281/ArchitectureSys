@@ -31,9 +31,10 @@ import com.sp.service.CardService;
       CardService cService;
       
       @RequestMapping(method=RequestMethod.POST,value="/card")
-      public void addCard(@RequestBody CardDTO cardDTO) {
+      public CardDTO addCard(@RequestBody CardDTO cardDTO) {
     	  System.out.print("Lancement de l'ajout dans la base de données de la carte: "+cardDTO);
-          cService.addCard(cardDTO);
+          CardDTO generatedCardDTO = cService.addCard(cardDTO);
+		return generatedCardDTO;
       }
       
       // Renvoie la carte avec l'id demandé
@@ -53,7 +54,7 @@ import com.sp.service.CardService;
       }
       
       // Attribuer des cartes pour l'utilisateur qui vient d'être créé
-      @RequestMapping(method=RequestMethod.GET,value="/generateCards/{userId}")
+      @RequestMapping(method=RequestMethod.GET,value="/card/generateCards/{userId}")
       public List<CardDTO> generateCards(@PathVariable String userId) {
     	  System.out.println("Lancement de la création de cartes pour l'utilisateur: id="+userId);
     	  List<CardDTO> generatedCardsList = cService.createCards(Integer.valueOf(userId));
@@ -68,7 +69,7 @@ import com.sp.service.CardService;
     	  return marketList;
       }
       
-      @RequestMapping(method=RequestMethod.GET,value="/cards")
+      @RequestMapping(method=RequestMethod.GET,value="/card/cards")
       public List<CardDTO> getCards() {
     	  System.out.println("Lancement de la récupération de toutes les cartes");
           List<CardDTO> clist =  cService.getAllCards();

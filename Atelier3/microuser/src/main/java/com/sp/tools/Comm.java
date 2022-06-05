@@ -9,7 +9,7 @@ public class Comm {
 	static RestTemplate restTemplate = new RestTemplate();
 	//HttpHeaders headers = new HttpHeaders();
 	
-	static String URL_GENERATECARD = "http://127.0.0.1:8083/generateCards";
+	static String URL_GENERATECARD = "http://127.0.0.1:8083/card/generateCards";
 	
 	
 	
