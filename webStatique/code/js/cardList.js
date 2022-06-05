@@ -34,7 +34,7 @@ let cardList = [
         price:250
     },
 
-    ];
+];
 
 
 function create_card_object(response, id){
@@ -49,10 +49,6 @@ function create_card_object(response, id){
     card.attack = response[id].attack
     card.defence = response[id].defence
 
-    // card.date = "12h";
-    // card.comment = "0 comment";
-    // card.like = "2 likes";
-    // card.button = "Read";
     cardList.push(card);
     display(card);
 }
