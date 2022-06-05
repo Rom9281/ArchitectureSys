@@ -1,5 +1,5 @@
 function Connect(){
-    console.log("OK");
+    // console.log("OK");
 
     const target_url = "http://127.0.0.1:8082/getUser"
     // check if user/pw pair exists and opens main menu page if so 
@@ -27,7 +27,7 @@ function Connect(){
     console.log(jsonString)
 
     const requestOptions = {
-        //mode: 'no-cors',
+        mode: 'no-cors',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: jsonString
