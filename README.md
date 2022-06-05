@@ -65,13 +65,14 @@ Tous nos services sont accessibles à partir du localhost : 127.0.0.1
 
   
 # Elements réalisés du cahier des charges
-  # BURLOT Alexandre
-
-  # CURRAL Maxime
+  ## BURLOT Alexandre
+  - Réalisation de tous le micro-service market
+  - Utilisation de la base de données H2
+  ## CURRAL Maxime
   
-  # GAUD Romain
-  
-  # GALMIER Romain
+  ## GAUD Romain
+  - Parle de la base de données en docker
+  ## GALMIER Romain
   
   
  # Elements non-réalisés du cahier des charges

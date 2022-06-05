@@ -37,8 +37,9 @@ public class MarketService {
 	}
 	
 	
-	public void buyCard(Integer buyerId, Integer cardId) {
+	public Boolean buyCard(Integer buyerId, Integer cardId) {
 		System.out.println("MarketService buyCard: Achat d'une carte");
+		Boolean ret =false;
 		CardDTO cardDTO = Comm.getCardDTO(cardId);
 		
 		// vérifie si la carte est en vente dans le market
@@ -53,7 +54,9 @@ public class MarketService {
 				Comm.putUpdateUser(buyer);// save le buyer en ajoutant la carte, enlevant sa money
 				Comm.putUpdateCard(cardDTO);// save la carte avec l'id de son nouveau propriétaire
 				Comm.putUpdateUser(owner);// save l'ancien proprio avec la carte enlevé de ses cartes, la money en plus
+				ret = true;
 			}
 		}
+		return ret;
 	}
 }

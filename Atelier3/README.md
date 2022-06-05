@@ -8,6 +8,7 @@
     "energy":12,
     "hp":12,
     "attack":12,
+    "price":100,
     "userId":1,
     "isToSell":false
 }
@@ -21,6 +22,7 @@
     "energy":36,
     "hp":87,
     "attack":16,
+    "price":100,
     "userId":2,
     "isToSell": true
 }
@@ -34,6 +36,7 @@
     "energy":26,
     "hp":49,
     "attack":78,
+    "price":100,
     "userId":3,
     "isToSell": true
 }
@@ -47,6 +50,7 @@
     "energy":49,
     "hp":12,
     "attack":13,
+    "price":100,
     "userId":4,
     "isToSell": false
 }
@@ -60,6 +64,7 @@
     "energy":41,
     "hp":61,
     "attack":31,
+    "price":100,
     "userId":5,
     "isToSell": true
 }

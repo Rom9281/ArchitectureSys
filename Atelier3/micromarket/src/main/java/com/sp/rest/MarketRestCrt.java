@@ -41,10 +41,10 @@ public class MarketRestCrt {
 
 	//
 	@RequestMapping(method = RequestMethod.GET, value = "/market/buy/{userId}/{cardId}")
-	public void buyCard(@PathVariable String userId, @PathVariable String cardId) {
+	public Boolean buyCard(@PathVariable String userId, @PathVariable String cardId) {
 		System.out.println("Lancement achat d'une carte");
-		// TODO: possiblement trouver un moyen de récupéré les deux variables autrement
-		mService.buyCard(Integer.valueOf(userId), Integer.valueOf(cardId));
+		Boolean ret = mService.buyCard(Integer.valueOf(userId), Integer.valueOf(cardId));
+		return ret;
 	}
 
 }
