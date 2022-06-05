@@ -45,5 +45,5 @@ function SendCard(){
 }
 
 function updatePriceDisplay(val) {
-    document.getElementById('priceDisplay').value=val.concat(' $'); 
+    document.getElementById('priceDisplay').value=val.concat(' $');
   }

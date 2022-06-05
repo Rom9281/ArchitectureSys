@@ -16,8 +16,10 @@ function SendUser(){
     if ((User.password.normalize() === document.getElementById("Re-Password").value.normalize())
         && !(User.password === "")){
         console.log("mdp et re-mdp semblables");
+        document.getElementById('message').value='Account successfully created';
     } else{
         console.log("/!\\ mdp et re-mdp différents ou vides");
+        document.getElementById('message').value='Error: passwords are not the same';
         reset_password_form();
         return
     }
@@ -31,6 +33,7 @@ function SendUser(){
     const element = jsonString; //what we want to post
     const requestOptions = {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: jsonString
     };
