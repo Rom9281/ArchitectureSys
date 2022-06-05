@@ -59,7 +59,7 @@ Tous nos services sont accessibles à partir du localhost : 127.0.0.1
 |   GET         |       /user/           |    None           |   List\<UserDTO>      | Obtenir tous les utilisateurs | 
 |   GET         |       /user/{userId}   |    None        |   UserDTO      | Obtention de l'utilisateur {userId}
 |   POST        |       /user/login     |    UserDTO        |   Boolean | Vérification du login de l'utilisateur souhaitant se connecter
-|   PUT         |       /update     |    UserDTO        |   None | Met à jour un User
+|   PUT         |       /user/update     |    UserDTO        |   None | Met à jour un User
 |   GET         |       /getUserInfo/{login}     |    None        |   User | Récupère les informations du User grâce à son login
 
 
