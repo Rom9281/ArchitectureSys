@@ -66,9 +66,15 @@ Tous nos services sont accessibles à partir du localhost : 127.0.0.1
   
 # Elements réalisés du cahier des charges
   ## BURLOT Alexandre
-  - Réalisation de tout le micro-service market
+  - Réalisation de tout le micro-service card
+  - Carte instanciées avec un Id unique garanti par les annotations Springboot
+  - Réalisation de l'outil de communication du micro service Market (Comm.java)
   - Utilisation de la base de données H2 sur le projet
   - Création des fichiers Com pour contrôle microservices
+  - Harmonisation URI dans le RestCtr de Card
+  - Mise en place de la convention de communication à base d'objets de type de DTO
+  - Mise en place de méthode PUT dans les RestCtr pour la MAJ de la base de données
+  - 
 
   ## CURRAL Maxime
   + Réalisation du front-end du projet
@@ -83,6 +89,9 @@ Tous nos services sont accessibles à partir du localhost : 127.0.0.1
   ## SONAR
   Nous nous sommes renseignés sur une éventuelle implémentation de l'outil SonarScanner sur le projet mais sa mise en place nécessite les packages de dockers que nous n'avons pas sur nos machines et son utilisation n'aurait été que partielle.
   ## ROOMS
-  
+  Nous n'avons pas réaliser les Rooms demandées par le cahier des charges.
+
   ## Front
+  Le niveau d'avancement du front est limité, la création d'utilisateur est fonctionnel ainsi que la création de ses cartes associés.
+  La PLD requête inscrit sur les fichiers de type @RestCtr est opérationnel et permet grâce aux logs de suivre le processus pas à pas.
   
