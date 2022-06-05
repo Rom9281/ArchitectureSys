@@ -67,7 +67,8 @@ Tous nos services sont accessibles à partir du localhost : 127.0.0.1
 # Elements réalisés du cahier des charges
   ## BURLOT Alexandre
   - Réalisation de tous le micro-service market
-  - Utilisation de la base de données H2
+  - Utilisation de la base de données H2 sur le projet
+  - création des fichier Com pour controle microservices
   ## CURRAL Maxime
   
   ## GAUD Romain
@@ -77,7 +78,7 @@ Tous nos services sont accessibles à partir du localhost : 127.0.0.1
   
  # Elements non-réalisés du cahier des charges
   ## SONAR
-  
+  Nous nous sommes renseignés sur une éventuelle implémentation de l'outils SonarScanner sur le projet mais sa mise en place nécessite les packages de dockers que nous n'avons pas sur nos machines et son utilisation n'aurait été que partielle.
   ## ROOMS
   
   ## Front
