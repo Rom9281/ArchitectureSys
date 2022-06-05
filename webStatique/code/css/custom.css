@@ -49,6 +49,9 @@ body{
 
 .createRoomButton{
     height: 100%;
-    width: 100%;
-    
+    width: 100%;   
+}
+
+.numberDisplay{
+    text-align: left;
 }

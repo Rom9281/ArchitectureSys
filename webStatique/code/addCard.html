@@ -68,6 +68,13 @@
                         <label>Defence</label>
                         <input name="Defence" type="range" min="1" max="100" value="20" class="slider" id="DefenceRange">
                     </div>
+                    <div class="slidecontainer">
+                        <label>Price</label>
+                        <input name="Price" type="range" min="10" max="1000" value="100" class="slider" id="PriceRange" onchange="updatePriceDisplay(this.value);">
+                    </div>
+                    <div class="numberDisplay">
+                        <input type="text" id="priceDisplay" value="100 $">
+                    </div>
                     <button class="ui button" type="button">Cancel</button>
                     <button class="ui button" type="button" style="float: right;" onclick="SendCard()">+ OK</button>
                 </form>

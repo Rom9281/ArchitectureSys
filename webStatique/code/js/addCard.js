@@ -4,7 +4,7 @@ function SendCard(){
     const form = document.getElementById('addCardForm')
 
     var Card = new Object();
-    Card.name = form.elements[0].value;
+    Card.name = form.elements[0].value; //it would be better to get the elements via another way (more secure)
     Card.description = form.elements[1].value;
     Card.imgUrl = form.elements[2].value;
     console.log(Card.imgUrl);
@@ -14,6 +14,7 @@ function SendCard(){
     Card.energy = form.elements[6].value;
     Card.attack= form.elements[7].value;
     Card.defence= form.elements[8].value;
+    Card.price = form.elements[9].value;
 
     var jsonString = JSON.stringify(Card); //all the card infos
     console.log(jsonString)
@@ -33,23 +34,16 @@ function SendCard(){
             .catch(error => err_callback(error));
         // .then(data => element.innerHTML = data.id );
 
-function callback(response){
-    document.getElementById("content").innerHTML = response.value;
-}
+    function callback(response){
+        document.getElementById("content").innerHTML = response.value;
+    }
 
-function err_callback(error){
-    console.log(error);
-}
-
-    // fetch(GET_CHUCK_URL,context)
-    // .then(response => response.json())
-    //     .then(response => callback(response))
-    //     .catch(error => err_callback(error));
-
-    // async function submitForm(e, form){
-    //     e.preventDefault();
-
-    //     const btnSubmit = document.getElementById
-    // }
+    function err_callback(error){
+        console.log(error);
+    }
 
 }
+
+function updatePriceDisplay(val) {
+    document.getElementById('priceDisplay').value=val.concat(' $');
+  }
