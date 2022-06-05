@@ -68,7 +68,10 @@ Tous nos services sont accessibles à partir du localhost : 127.0.0.1
   # BURLOT Alexandre
 
   # CURRAL Maxime
-  
+  + Front-end du projet
+  + Communication API / requêtes entre client et micro-services
+  + Lecture des DTO
+
   # GAUD Romain
   
   # GALMIER Romain
