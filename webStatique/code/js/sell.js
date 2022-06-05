@@ -3,8 +3,8 @@
 var current_user_id = 0;//TODO get the real current user
 var current_card_id = 0;
 const get_user_url = "http://localhost:8082/user/";
-const get_cards_url = "http://localhost:8083/card/market";
-const buy_card_url = "http://localhost:8084/market/buy/";
+const get_cards_url = "http://localhost:8084/market/sell/";
+const sell_card_url = "http://localhost:8083/card/";
 
 function getUser(){
 
@@ -197,14 +197,16 @@ function getCardlist(){
     generate();
 }
 
-function BuyCard(){
-    // console.log("buying card: ".concat(current_card_id));
+function SellCard(){
+    // console.log("selling card: ".concat(current_card_id));
+    
     let requestOptions = {
-        method: 'GET',
-        mode:'no-cors'
+        method: 'PUT',
+        mode: 'no-cors',
+        body: card //lacks a change of owner
     };
     
-    fetch(buy_card_url.concat(current_user_id, "/", current_card_id), requestOptions)
+    fetch(sell_card_url.concat(current_card_id), requestOptions)
         .catch(error => err_callback(error));
 
     function err_callback(error){
