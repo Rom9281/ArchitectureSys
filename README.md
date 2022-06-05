@@ -2,6 +2,10 @@
 
 ## Projet Creation d'un site de jeu de cartes SpringBoot
 
+## Lien vers le dépôt Github
+
+https://github.com/Rom9281/ArchitectureSys
+
 ## Membres de l'équipe 
 
 BURLOT Alexandre <br>
@@ -92,6 +96,10 @@ Tous nos services sont accessibles à partir du localhost : 127.0.0.1
   Nous n'avons pas réaliser les Rooms demandées par le cahier des charges.
 
   ## Front
-  Le niveau d'avancement du front est limité, la création d'utilisateur est fonctionnel ainsi que la création de ses cartes associés.
-  La PLD requête inscrit sur les fichiers de type @RestCtr est opérationnel et permet grâce aux logs de suivre le processus pas à pas.
+  Le niveau d'avancement du front est limité, la création d'utilisateur est fonctionnelle ainsi que la création de ses cartes associés.
+  Les interfaces d'achat / vente manquent de quelques ajustements.
+  La PLD requête inscrit sur les fichiers de type @RestCtr est opérationnelle et permet grâce aux logs de suivre le processus pas à pas.
+
+  ## Vidéo
+  Suite à des problèmes de téléversement, la vidéo n'est pas disponible de suite. Nous mettons tout en oeuvre pour vous la faire parvenir au plus vite.
   
