@@ -65,16 +65,14 @@ Tous nos services sont accessibles à partir du localhost : 127.0.0.1
 
   
 # Elements réalisés du cahier des charges
-<<<<<<< HEAD
   ## BURLOT Alexandre
   - Réalisation de tout le micro-service market
   - Utilisation de la base de données H2 sur le projet
   - Création des fichiers Com pour contrôle microservices
 
   ## CURRAL Maxime
-  + Front-end du projet
-  + Communication API / requêtes entre client et micro-services
-  + Lecture des DTO
+  + Réalisation du front-end du projet
+  + Mise en place des communications API / requêtes entre client et micro-services
   
   ## GAUD Romain
   - Parle de la base de données en docker
