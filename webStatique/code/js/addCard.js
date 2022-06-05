@@ -1,6 +1,9 @@
 function SendCard(){
-    // create a json from form
 
+    const target_url = "http://127.0.0.1:8083/card/";
+    // const target_url = 'https://asi2-backend-market.herokuapp.com/card'
+
+    // create a json from form
     const form = document.getElementById('addCardForm')
 
     var Card = new Object();
@@ -28,7 +31,7 @@ function SendCard(){
         headers: { 'Content-Type': 'application/json' },
         body: jsonString
     };
-    fetch('https://asi2-backend-market.herokuapp.com/card', requestOptions)
+    fetch(target_url, requestOptions)
         .then(response => response.json())
             .then (response => callback(response))
             .catch(error => err_callback(error));
