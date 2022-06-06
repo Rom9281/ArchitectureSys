@@ -7,6 +7,19 @@ function getInfo(){
     var user = new Object();
     user.login = sessionStorage.getItem('login');
 
+    if(user.login != null)
+    {
+        request();
+    }
+    else{
+        document.getElementById("userNameId").innerHTML = "No User";
+        document.getElementById("money").innerHTML = "0";
+    }
+
+    
+}
+
+function request(){
     document.getElementById("userNameId").innerHTML = user.login;
 
     const requestOptions = {
@@ -15,9 +28,10 @@ function getInfo(){
 
      // TODO change the URL to the User DB
     fetch(target_url+"/"+user.login, requestOptions)
-    .then(response => response.json())
-    .then (response => response_processing(response))
-    .catch(error => err_callback(error));
+        .then(response => response.json())
+        .then (response => response_processing(response))
+        .catch(error => err_callback(error));
+
 }
 
 function response_processing(response){

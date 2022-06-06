@@ -20,7 +20,7 @@
                 <i class="user circle outline icon"></i>
                 <div class="content">
                     <span id="userNameId">{{userNameId}}</span>
-                    <div class="sub header"><span>{{userMoney}}</span>$</div>
+                    <div class="sub header" id="money"><span>{{userMoney}}</span>$</div>
                 </div>
             </h3>
 
@@ -181,6 +181,8 @@
         <script src="../lib/jquery-3.3.1.min.js"></script>
         <script src="../lib/Semantic-UI-CSS-master/semantic.js"></script>
         <script src="./js/cardList.js"></script> 
+        <script type="text/javascript" src="./js/info.js"></script>
+        <body onload="getInfo()"> 
         
         <!-- <script>
             $(function(){
