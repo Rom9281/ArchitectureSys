@@ -27,7 +27,7 @@ function Connect(){
     console.log(jsonString)
 
     const requestOptions = {
-        mode: 'no-cors',
+        //mode: 'no-cors',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: jsonString

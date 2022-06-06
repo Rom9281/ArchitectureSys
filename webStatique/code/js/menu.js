@@ -3,9 +3,11 @@ function getInfo(){
     // create a json from form
     const target_url = "http://127.0.0.1:8082/getUserInfo"
 
-
+    console.log("ok");
     var user = new Object();
     user.login = sessionStorage.getItem('login');
+
+    document.getElementById("userNameId").innerHTML = user.login;
 
     const requestOptions = {
         method: 'GET',
@@ -19,8 +21,9 @@ function getInfo(){
 }
 
 function response_processing(response){
-    console.log(response.body)
+    console.log(response.money)
     console.log(typeof(response))
+    document.getElementById("money").innerHTML = response.money;
 }
     
 function err_callback(error){
