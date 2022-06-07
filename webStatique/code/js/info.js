@@ -9,7 +9,7 @@ function getInfo(){
 
     if(user.login != null)
     {
-        request();
+        request(user,target_url);
     }
     else{
         document.getElementById("userNameId").innerHTML = "No User";
@@ -19,7 +19,7 @@ function getInfo(){
     
 }
 
-function request(){
+function request(user,target_url){
     document.getElementById("userNameId").innerHTML = user.login;
 
     const requestOptions = {

@@ -1,10 +1,9 @@
 //URLs
 
-var current_user_id = 0;//TODO get the real current user
-var current_card_id = 0;
-const get_user_url = "http://localhost:8082/user/";
-const get_cards_url = "http://localhost:8083/card/market";
-const buy_card_url = "http://localhost:8084/market/buy/";
+let user = new Object();
+let get_user_url = "http://localhost:8082/user/";
+let get_cards_url = "http://localhost:8083/card/market";
+let buy_card_url = "http://localhost:8084/market/buy/";
 
 function getUser(){
 
@@ -14,7 +13,7 @@ function getUser(){
         mode: 'no-cors'
     }
 
-    fetch(get_user_url.concat(current_user_id), requestOptions)
+    fetch(get_user_url+"/"+user.login, requestOptions)
         .then(response => response.json())
         .then (response => callback(response))
         .catch(error => err_callback(error));
@@ -29,9 +28,10 @@ function getUser(){
 }
 
 function create_user_object(response){
-    var user = new Object();
-    user.login = response.login
-    user.money = response.login
+    console.log(response)
+    user.login = localStorage.getItem("login");
+    user.money = response.money;
+    user.id =response.id;
 
     display(user);
 }
@@ -172,7 +172,7 @@ function getCardlist(){
     function generate(){
             let requestOptions =   {
                 method: 'GET',
-                mode:'no-cors'
+                //mode:'no-cors'
             };
             
         fetch(get_cards_url, requestOptions)
@@ -182,7 +182,7 @@ function getCardlist(){
     }
     
     function callback(response){
-        // console.log(response);
+         console.log(response);
         // console.log("ajout cartes serveur")
         for (const i in response){
             create_card_object(response, i);
@@ -201,10 +201,10 @@ function BuyCard(){
     // console.log("buying card: ".concat(current_card_id));
     let requestOptions = {
         method: 'GET',
-        mode:'no-cors'
+        //mode:'no-cors'
     };
     
-    fetch(buy_card_url.concat(current_user_id, "/", current_card_id), requestOptions)
+    fetch(buy_card_url.concat(user.id, "/", current_card_id), requestOptions)
         .catch(error => err_callback(error));
 
     function err_callback(error){

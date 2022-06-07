@@ -44,6 +44,7 @@ public class UserRestCrt {
 	public UserDTO getUser(@PathVariable String userId) {
 		System.out.println("Lancement de la récupération du User id="+userId);
 		User u = uService.getUser(Integer.valueOf(userId));
+		System.out.println(u);
         UserDTO userDTO = new UserDTO();
         BeanUtils.copyProperties(u, userDTO);
 		return userDTO;
