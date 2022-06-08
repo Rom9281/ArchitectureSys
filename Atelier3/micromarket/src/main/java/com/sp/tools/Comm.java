@@ -16,7 +16,7 @@ import com.model.UserDTO;
 public class Comm {
 
 	private static final String URL_CARDSERVICE = "http://localhost:8083/card";
-	private static final String URL_USERSERVICE = "http://localhost:8081/user";
+	private static final String URL_USERSERVICE = "http://localhost:8082/user";
 	
 	private static RestTemplate restTemplate = new RestTemplate();
 	private static HttpHeaders headers = new HttpHeaders();
@@ -72,11 +72,12 @@ public class Comm {
 	 * 		- mettre à jour l'argent d'un User à la suite d'une vente
 	 * @param userDTO
 	 */
-	// PUT: http://localhost:8081/user/update
+	// PUT: http://localhost:8082/user/update
 	public static void putUpdateUser(UserDTO userDTO) {
 		System.out.println("MarketComm putUpdateUser: Requête pour mettre à jour le "+userDTO);
-		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
-		HttpEntity<UserDTO> requestBody = new HttpEntity<>(userDTO, headers);
-		restTemplate.put(URL_USERSERVICE + "/"+userDTO.getId(), requestBody, Boolean.class);
+		//headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
+		//HttpEntity<UserDTO> requestBody = new HttpEntity<>(userDTO, headers);
+		
+		restTemplate.put(URL_USERSERVICE + "/update", userDTO, Boolean.class);
 	}
 }

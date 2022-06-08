@@ -62,6 +62,7 @@ public class UserRestCrt {
 		uService.update(userDTO);
 	}
 	
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/getUserInfo/{login}")
 	public User getUserInfo(@PathVariable String login) {
 		System.out.println("Lancement de la récupération des informations d'un User login="+login);

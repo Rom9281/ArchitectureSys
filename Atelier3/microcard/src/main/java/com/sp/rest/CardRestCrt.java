@@ -74,6 +74,7 @@ import com.sp.service.CardService;
     	  System.out.println("Lancement de la récupération de toutes les cartes");
           List<CardDTO> clist =  cService.getAllCards();
           return clist;
+          
       }
       
       @RequestMapping(method=RequestMethod.PUT,value="/card/{cardId}")
